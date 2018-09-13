@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,6 +8,7 @@
         android:id="@+id/post_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/darker_gray"
         app:contentPadding="5dp">
 
         <RelativeLayout
@@ -28,10 +29,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/post_logo"
+                android:layout_below="@+id/post_timestamp"
+                android:layout_marginBottom="5dp"
                 android:text="Over 1 million pieces sold !!"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/post_shortdesc"
@@ -45,9 +46,10 @@
                 android:id="@+id/post_timestamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/post_logo"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="5dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/post_logo"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
                 android:text="18.03.2018"
                 android:textSize="12sp" />
 
@@ -68,4 +70,4 @@
 
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

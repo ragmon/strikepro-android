@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/mm_common_group" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
@@ -16,6 +16,9 @@
             android:id="@+id/nav_blog"
             android:icon="@drawable/ic_blog"
             android:title="@string/nav_blog" />
+    </group>
+
+    <group android:id="@+id/mm_second_group" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_wherebuy"
             android:icon="@drawable/ic_wherebuy"
