@@ -42,12 +42,27 @@
                 android:text="Since 1973 Strike Pro has continually evolved by paying particular attention to their five main criteria - Professionalism" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/post_timestamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/post_logo"
                 android:layout_alignParentEnd="true"
-                android:text="2014-02-18" />
+                android:layout_margin="5dp"
+                android:text="18.03.2018"
+                android:textSize="12sp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/post_share"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="5dp"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:cropToPadding="false"
+                app:fabCustomSize="30dp"
+                app:srcCompat="@android:drawable/ic_menu_share" />
 
         </RelativeLayout>
 

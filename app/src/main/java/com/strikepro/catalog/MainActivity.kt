@@ -6,6 +6,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.strikepro.catalog.fragment.AboutFragment
 import com.strikepro.catalog.fragment.BlogFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -24,10 +25,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        supportFragmentManager
-                .beginTransaction()
-                .add(R.id.frame_content, BlogFragment.newInstance())
-                .commit()
+        selectDefaultNavItem()
+    }
+
+    private fun selectDefaultNavItem() {
+        selectBlogItem()
     }
 
     override fun onBackPressed() {
@@ -40,28 +42,42 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
-//        when (item.itemId) {
-//            R.id.nav_camera -> {
-//                // Handle the camera action
-//            }
-//            R.id.nav_gallery -> {
-//
-//            }
-//            R.id.nav_slideshow -> {
-//
-//            }
-//            R.id.nav_manage -> {
-//
-//            }
-//            R.id.nav_share -> {
-//
-//            }
-//            R.id.nav_send -> {
-//
-//            }
-//        }
+        when (item.itemId) {
+            R.id.nav_home -> selectHomeItem()
+            R.id.nav_catalog -> selectCatalogItem()
+            R.id.nav_blog -> selectBlogItem()
+            R.id.nav_contact -> selectContactsItem()
+            R.id.nav_about -> selectAboutItem()
+        }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun selectHomeItem() {
+        //
+    }
+
+    private fun selectCatalogItem() {
+        //
+    }
+
+    private fun selectBlogItem() {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frame_content, BlogFragment.newInstance())
+                .commit()
+        nav_view.setCheckedItem(R.id.nav_blog)
+    }
+
+    private fun selectContactsItem() {
+        //
+    }
+
+    private fun selectAboutItem() {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frame_content, AboutFragment.newInstance())
+                .commit()
     }
 }
