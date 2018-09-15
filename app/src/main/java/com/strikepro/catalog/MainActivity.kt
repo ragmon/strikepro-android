@@ -1,5 +1,7 @@
 package com.strikepro.catalog
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -43,11 +45,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
+            // Common navigation items
             R.id.nav_home -> selectHomeItem()
             R.id.nav_catalog -> selectCatalogItem()
             R.id.nav_blog -> selectBlogItem()
+            R.id.nav_wherebuy -> selectWhereBuy()
+            // Secondary navigation items
             R.id.nav_contact -> selectContactsItem()
             R.id.nav_about -> selectAboutItem()
+            // Social buttons
+            R.id.open_facebook -> openFacebook()
+            R.id.open_vk -> openVk()
+            R.id.open_youtube -> openYoutube()
+            R.id.open_instagram -> openInstagram()
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
@@ -70,6 +80,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setCheckedItem(R.id.nav_blog)
     }
 
+    private fun selectWhereBuy() {
+        //
+    }
+
     private fun selectContactsItem() {
         //
     }
@@ -79,5 +93,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .beginTransaction()
                 .replace(R.id.frame_content, AboutFragment.newInstance())
                 .commit()
+    }
+
+    private fun openFacebook() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/StrikeProRussia")))
+    }
+
+    private fun openVk() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/strikepro")))
+    }
+
+    private fun openYoutube() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/user/StrikeProRussia")))
+    }
+
+    private fun openInstagram() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/strikeprorussia")))
     }
 }

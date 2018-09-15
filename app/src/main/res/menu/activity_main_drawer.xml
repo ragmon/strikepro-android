@@ -16,13 +16,13 @@
             android:id="@+id/nav_blog"
             android:icon="@drawable/ic_blog"
             android:title="@string/nav_blog" />
-    </group>
-
-    <group android:id="@+id/mm_second_group" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_wherebuy"
             android:icon="@drawable/ic_wherebuy"
             android:title="@string/nav_buy" />
+    </group>
+
+    <group android:id="@+id/mm_second_group" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_contact"
             android:icon="@drawable/ic_contacts"
@@ -32,5 +32,26 @@
             android:icon="@drawable/ic_about"
             android:title="@string/nav_about" />
     </group>
+
+    <item android:id="@+id/mm_social" android:title="Мы в социальных сетях">
+        <menu>
+            <item
+                android:id="@+id/open_vk"
+                android:icon="@drawable/ic_vk"
+                android:title="Vkontakte" />
+            <item
+                android:id="@+id/open_facebook"
+                android:icon="@drawable/ic_facebook"
+                android:title="Facebook" />
+            <item
+                android:id="@+id/open_instagram"
+                android:icon="@drawable/ic_instagram"
+                android:title="Instagram" />
+            <item
+                android:id="@+id/open_youtube"
+                android:icon="@drawable/ic_youtube"
+                android:title="Youtube" />
+        </menu>
+    </item>
 
 </menu>
