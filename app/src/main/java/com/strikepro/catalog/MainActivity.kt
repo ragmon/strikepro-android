@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.strikepro.catalog.fragment.AboutFragment
 import com.strikepro.catalog.fragment.BlogFragment
+import com.strikepro.catalog.fragment.ContactFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_blog -> selectBlogItem()
             R.id.nav_wherebuy -> selectWhereBuy()
             // Secondary navigation items
-            R.id.nav_contact -> selectContactsItem()
+            R.id.nav_contact -> selectContactItem()
             R.id.nav_about -> selectAboutItem()
             // Social buttons
             R.id.open_facebook -> openFacebook()
@@ -84,8 +85,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //
     }
 
-    private fun selectContactsItem() {
-        //
+    private fun selectContactItem() {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frame_content, ContactFragment.newInstance())
+                .commit()
     }
 
     private fun selectAboutItem() {

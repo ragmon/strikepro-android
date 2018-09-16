@@ -38,19 +38,19 @@
             <item
                 android:id="@+id/open_vk"
                 android:icon="@drawable/ic_vk"
-                android:title="Vkontakte" />
+                android:title="@string/open_vkontakte" />
             <item
                 android:id="@+id/open_facebook"
                 android:icon="@drawable/ic_facebook"
-                android:title="Facebook" />
+                android:title="@string/open_facebook" />
             <item
                 android:id="@+id/open_instagram"
                 android:icon="@drawable/ic_instagram"
-                android:title="Instagram" />
+                android:title="@string/open_instagram" />
             <item
                 android:id="@+id/open_youtube"
                 android:icon="@drawable/ic_youtube"
-                android:title="Youtube" />
+                android:title="@string/open_youtube" />
         </menu>
     </item>
 
