@@ -1,10 +1,11 @@
 package com.strikepro.catalog.fragment.contact
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.util.Log
+import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,36 @@ class ContactFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Setup contact view pager
         contact_pager.adapter = ContactSlidePagerAdapter(childFragmentManager)
+        contact_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+            override fun onPageSelected(position: Int) {
+                when (position) {
+                    SLIDE_STORE_INDEX -> setSlideNavButtonsState(false, true)
+                    SLIDE_PARTNER_INDEX -> setSlideNavButtonsState(true, false)
+                    else -> {
+                        setSlideNavButtonsState(false, false)
+                    }
+                }
+            }
+        })
+        setSlideNavButtonsState(false, true)
+
+        // Setup contact view pager navigation buttons
+        btnSwipeRight.setOnClickListener {
+            contact_pager.setCurrentItem(contact_pager.currentItem + 1, true)
+        }
+        btnSwipeLeft.setOnClickListener {
+            contact_pager.setCurrentItem(contact_pager.currentItem - 1, true)
+        }
+    }
+
+    @SuppressLint("RestrictedApi")
+    private fun setSlideNavButtonsState(left: Boolean, right: Boolean) {
+        btnSwipeLeft.visibility = if (left) View.VISIBLE else View.GONE
+        btnSwipeRight.visibility = if (right) View.VISIBLE else View.GONE
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -54,7 +84,6 @@ class ContactFragment : Fragment() {
         override fun getCount(): Int {
             return NUM_PAGES
         }
-
     }
 
     companion object {
