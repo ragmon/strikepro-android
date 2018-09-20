@@ -31,10 +31,6 @@ class AboutFragment : Fragment() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     companion object {
         /**
          * Use this factory method to create a new instance of

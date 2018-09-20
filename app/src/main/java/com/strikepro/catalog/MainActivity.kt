@@ -10,11 +10,13 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.strikepro.catalog.fragment.AboutFragment
 import com.strikepro.catalog.fragment.BlogFragment
-import com.strikepro.catalog.fragment.ContactFragment
+import com.strikepro.catalog.fragment.contact.ContactFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private var mainMenuItemChanged = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +30,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        selectDefaultNavItem()
+        if (savedInstanceState == null || !savedInstanceState.getBoolean(KEY_MAIN_MENU_ITEM_CHANGE_STATUS, false)) {
+            selectDefaultNavItem()
+        }
     }
 
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putBoolean(KEY_MAIN_MENU_ITEM_CHANGE_STATUS, mainMenuItemChanged)
+
+        super.onSaveInstanceState(outState)
+    }
+
+    /**
+     * Select the default navigation item.
+     */
     private fun selectDefaultNavItem() {
         selectBlogItem()
     }
@@ -60,6 +73,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.open_youtube -> openYoutube()
             R.id.open_instagram -> openInstagram()
         }
+
+        mainMenuItemChanged = true
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
@@ -113,5 +128,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun openInstagram() {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/strikeprorussia")))
+    }
+
+    companion object {
+        const val TAG = "MainActivity"
+
+        const val KEY_MAIN_MENU_ITEM_CHANGE_STATUS = "main_menu_item_changed"
     }
 }
