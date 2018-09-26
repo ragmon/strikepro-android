@@ -70,12 +70,10 @@ class ContactFragment : Fragment() {
 
     private class ContactSlidePagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
-            when (position) {
-                SLIDE_STORE_INDEX -> return StoreFragment.newInstance()
-                SLIDE_PARTNER_INDEX -> return PartnerFragment.newInstance()
-                else -> {
-                    throw RuntimeException("Contact slide with position $position is not exists.")
-                }
+            return when (position) {
+                SLIDE_STORE_INDEX -> StoreFragment.newInstance()
+                SLIDE_PARTNER_INDEX -> PartnerFragment.newInstance()
+                else -> throw RuntimeException("Contact slide with position $position is not exists.")
             }
         }
 
@@ -88,8 +86,9 @@ class ContactFragment : Fragment() {
         @JvmStatic
         fun newInstance() = ContactFragment()
 
-        const val NUM_PAGES = 2
         const val TAG = "ContactFragment"
+
+        const val NUM_PAGES = 2
 
         const val SLIDE_STORE_INDEX = 0
         const val SLIDE_PARTNER_INDEX = 1
