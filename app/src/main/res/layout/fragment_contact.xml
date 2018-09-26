@@ -25,24 +25,28 @@
         android:id="@+id/btnSwipeLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginBottom="264dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/ic_arrow_circle_left_solid"
-        android:visibility="gone"
+        android:visibility="visible"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnSwipeRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="264dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/ic_arrow_circle_right_solid"
-        android:visibility="gone"
+        android:visibility="visible"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

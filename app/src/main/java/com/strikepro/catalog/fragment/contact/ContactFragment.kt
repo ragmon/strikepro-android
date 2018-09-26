@@ -33,9 +33,7 @@ class ContactFragment : Fragment() {
                 when (position) {
                     SLIDE_STORE_INDEX -> setSlideNavButtonsState(false, true)
                     SLIDE_PARTNER_INDEX -> setSlideNavButtonsState(true, false)
-                    else -> {
-                        setSlideNavButtonsState(false, false)
-                    }
+                    else -> setSlideNavButtonsState(false, false)
                 }
             }
         })

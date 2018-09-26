@@ -7,15 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.strikepro.catalog.R
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [BlogFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [BlogFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class BlogFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
