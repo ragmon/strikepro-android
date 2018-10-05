@@ -3,22 +3,22 @@ package com.strikepro.catalog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.annotation.IdRes
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
+import com.strikepro.catalog.`interface`.IBackStack
 import com.strikepro.catalog.fragment.AboutFragment
-import com.strikepro.catalog.fragment.BlogFragment
+import com.strikepro.catalog.fragment.blog.BlogFragment
 import com.strikepro.catalog.fragment.contact.ContactFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
-    private var currentMainMenuItemIndex: Int = DEFAULT_MAIN_MENU_ITEM_INDEX
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,37 +30,46 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
+        supportFragmentManager.addOnBackStackChangedListener(this)
+
         nav_view.setNavigationItemSelectedListener(this)
 
-        selectDefaultNavItem(savedInstanceState?.getInt(KEY_MAIN_MENU_ITEM_CHANGE_STATUS, -1))
+        Log.d(TAG, "onCreate")
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        Log.d(TAG, "onRestoreInstanceState; ${savedInstanceState?.getInt(KEY_MAIN_MENU_ITEM_CHANGE_STATUS, -1)}")
+        Log.d(TAG, "onRestoreInstanceState")
 
         super.onRestoreInstanceState(savedInstanceState)
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        Log.d(TAG, "onSaveInstanceState; $KEY_MAIN_MENU_ITEM_CHANGE_STATUS=${outState?.putInt(KEY_MAIN_MENU_ITEM_CHANGE_STATUS, currentMainMenuItemIndex)}")
-
-        outState?.putInt(KEY_MAIN_MENU_ITEM_CHANGE_STATUS, currentMainMenuItemIndex)
+        Log.d(TAG, "onSaveInstanceState")
 
         super.onSaveInstanceState(outState)
     }
 
-    /**
-     * Select the default navigation item.
-     *
-     * @param lastItemIndex Last selected main menu item index.
-     */
-    private fun selectDefaultNavItem(@IdRes lastItemIndex: Int?) {
-        Log.d(TAG, "selectDefaultNavItem; lastIndex = ${lastItemIndex ?: DEFAULT_MAIN_MENU_ITEM_INDEX}")
+    override fun onBackStackChanged() {
+        Log.d(TAG, "onBackStackChanged")
 
-        val itemIndex: Int = lastItemIndex ?: DEFAULT_MAIN_MENU_ITEM_INDEX
+        getCurrentMenuItem()?.isChecked = true
+    }
 
-        nav_view.setCheckedItem(itemIndex)
-        onNavigationItemSelected(nav_view.menu.findItem(itemIndex))
+    private fun getCurrentMenuItem(): MenuItem? {
+        return if (supportFragmentManager.backStackEntryCount - 1 >= 0) {
+            val fragment: Fragment? = supportFragmentManager.findFragmentById(R.id.frame_content)
+            val menuItemId: Int? = if (fragment is IBackStack)
+                (fragment as IBackStack).getCurrentMenuItem()
+            else
+                null
+
+            if (menuItemId != null)
+                nav_view.menu.findItem(menuItemId)
+            else
+                null
+        }
+        else
+            null
     }
 
     override fun onBackPressed() {
@@ -91,8 +100,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.open_instagram -> openInstagram()
         }
 
-        currentMainMenuItemIndex = item.itemId
-
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
@@ -109,7 +116,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.frame_content, BlogFragment.newInstance())
-                .addToBackStack(null)
+                .addToBackStack(BlogFragment.BACK_STACK_NAME)
                 .commit()
     }
 
@@ -121,7 +128,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.frame_content, ContactFragment.newInstance())
-                .addToBackStack(null)
+                .addToBackStack(ContactFragment.BACK_STACK_NAME)
                 .commit()
     }
 
@@ -129,7 +136,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.frame_content, AboutFragment.newInstance())
-                .addToBackStack(null)
+                .addToBackStack(AboutFragment.BACK_STACK_NAME)
                 .commit()
     }
 
@@ -150,10 +157,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     companion object {
-        const val TAG: String = "MainActivity"
-
-        const val KEY_MAIN_MENU_ITEM_CHANGE_STATUS: String = "main_menu_item_changed"
-
-        const val DEFAULT_MAIN_MENU_ITEM_INDEX: Int = R.id.nav_blog
+        const val TAG = "MainActivity"
     }
 }

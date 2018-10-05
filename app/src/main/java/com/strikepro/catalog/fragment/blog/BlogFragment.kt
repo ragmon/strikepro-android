@@ -1,19 +1,21 @@
-package com.strikepro.catalog.fragment
+package com.strikepro.catalog.fragment.blog
 
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.strikepro.catalog.R
+import com.strikepro.catalog.`interface`.IBackStack
 import com.strikepro.catalog.model.Post
 import kotlinx.android.synthetic.main.blog_item.view.*
 import kotlinx.android.synthetic.main.fragment_blog.*
 
-class BlogFragment : Fragment() {
+class BlogFragment : Fragment(), IBackStack {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -27,6 +29,10 @@ class BlogFragment : Fragment() {
         post_list.adapter = PostAdapter(activity as Context)
     }
 
+    override fun getCurrentMenuItem(): Int {
+        return R.id.nav_blog
+    }
+
     private class PostAdapter(private val mContext: Context) : BaseAdapter() {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val postView: View = convertView ?: (mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
@@ -38,7 +44,18 @@ class BlogFragment : Fragment() {
             postView.post_title.text = post.title
             postView.post_shortdesc.text = post.shortDesc
             postView.post_timestamp.text = post.timestamp
-            postView.post_share.setOnClickListener { Log.d(TAG, "post_share button click") }
+            postView.setOnClickListener {
+                Log.d(TAG, "click on post item with position = $position")
+
+                (mContext as FragmentActivity).supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.frame_content, PostFragment.newInstance(0 /* TODO: feature do replace by real post ID */))
+                        .addToBackStack(null)
+                        .commit()
+            }
+            postView.post_share.setOnClickListener {
+                Log.d(TAG, "postView.post_share click; position = $position")
+            }
 
             return postView
         }
@@ -53,9 +70,9 @@ class BlogFragment : Fragment() {
             const val TAG: String = "PostAdapter"
 
             val dummyData: Array<Post> = arrayOf(
-                    Post("1 post title", "https://picsum.photos/g/400/200", "14.06.2015", "1 post short desc"),
-                    Post("2 post title", "https://picsum.photos/g/400/200", "15.07.2016", "2 post short desc"),
-                    Post("3 post title", "https://picsum.photos/g/400/200", "16.08.2017", "3 post short desc")
+                    Post(1, "1 dummy", "https://picsum.photos/g/400/200", "14.06.2015", "1 dummyPost short desc"),
+                    Post(2, "2 dummy", "https://picsum.photos/g/400/200", "15.07.2016", "2 dummyPost short desc"),
+                    Post(3, "3 dummy", "https://picsum.photos/g/400/200", "16.08.2017", "3 dummyPost short desc")
             )
         }
     }
@@ -69,5 +86,7 @@ class BlogFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance() = BlogFragment()
+
+        const val BACK_STACK_NAME: String = "blog"
     }
 }

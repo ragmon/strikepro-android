@@ -15,6 +15,7 @@
         <item
             android:id="@+id/nav_blog"
             android:icon="@drawable/ic_blog"
+            android:checked="true"
             android:title="@string/nav_blog" />
         <item
             android:id="@+id/nav_wherebuy"
