@@ -104,6 +104,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    // ### Navigation callbacks ###################################################################
+
     private fun navHomeItem() {
         //
     }
@@ -139,6 +141,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .addToBackStack(AboutFragment.BACK_STACK_NAME)
                 .commit()
     }
+
+    // ### End of navigation callbacks ############################################################
 
     private fun openFacebook() {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/StrikeProRussia")))
