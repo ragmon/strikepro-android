@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.strikepro.catalog.R
 import com.strikepro.catalog.`interface`.IBackStack
-import com.strikepro.catalog.model.Post
+import com.strikepro.catalog.model.blog.Post
 import kotlinx.android.synthetic.main.blog_item.view.*
 import kotlinx.android.synthetic.main.fragment_blog.*
 

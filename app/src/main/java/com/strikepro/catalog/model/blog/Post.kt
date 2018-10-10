@@ -1,4 +1,4 @@
-package com.strikepro.catalog.model
+package com.strikepro.catalog.model.blog
 
 class Post(
         var id: Int,

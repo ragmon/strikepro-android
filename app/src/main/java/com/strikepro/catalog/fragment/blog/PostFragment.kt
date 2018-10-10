@@ -8,7 +8,7 @@ import android.view.ViewGroup
 
 import com.strikepro.catalog.R
 import com.strikepro.catalog.`interface`.IBackStack
-import com.strikepro.catalog.model.Post
+import com.strikepro.catalog.model.blog.Post
 
 // the fragment initialization parameters
 private const val ARG_PARAM_POST_ID = "post_id"
