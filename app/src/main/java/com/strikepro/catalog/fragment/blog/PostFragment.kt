@@ -10,9 +10,6 @@ import com.strikepro.catalog.R
 import com.strikepro.catalog.`interface`.IBackStack
 import com.strikepro.catalog.model.blog.Post
 
-// the fragment initialization parameters
-private const val ARG_PARAM_POST_ID = "post_id"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [PostFragment.newInstance] factory method to
@@ -39,6 +36,8 @@ class PostFragment : Fragment(), IBackStack {
     }
 
     companion object {
+        const val ARG_PARAM_POST_ID = "post_id"
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
