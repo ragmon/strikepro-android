@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.strikepro.catalog.R
-import com.strikepro.catalog.`interface`.IBackStack
 import com.strikepro.catalog.model.blog.Post
 
 /**
@@ -15,7 +14,7 @@ import com.strikepro.catalog.model.blog.Post
  * Use the [PostFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PostFragment : Fragment(), IBackStack {
+class PostFragment : Fragment() {
     private var paramPostId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +28,6 @@ class PostFragment : Fragment(), IBackStack {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_post, container, false)
-    }
-
-    override fun getCurrentMenuItem(): Int {
-        return R.id.nav_blog
     }
 
     companion object {

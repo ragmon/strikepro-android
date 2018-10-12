@@ -10,12 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.strikepro.catalog.R
-import com.strikepro.catalog.`interface`.IBackStack
 import com.strikepro.catalog.model.blog.Post
 import kotlinx.android.synthetic.main.blog_item.view.*
 import kotlinx.android.synthetic.main.fragment_blog.*
 
-class BlogFragment : Fragment(), IBackStack {
+class BlogFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -27,10 +26,6 @@ class BlogFragment : Fragment(), IBackStack {
         super.onViewCreated(view, savedInstanceState)
 
         post_list.adapter = PostAdapter(activity as Context)
-    }
-
-    override fun getCurrentMenuItem(): Int {
-        return R.id.nav_blog
     }
 
     private class PostAdapter(private val mContext: Context) : BaseAdapter() {

@@ -10,10 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.strikepro.catalog.R
-import com.strikepro.catalog.`interface`.IBackStack
 import kotlinx.android.synthetic.main.fragment_about.view.*
 
-class AboutFragment : Fragment(), IBackStack {
+class AboutFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -43,10 +42,6 @@ class AboutFragment : Fragment(), IBackStack {
         } else {
             view.about_company_desc.text = Html.fromHtml(getString(R.string.about_longdesc))
         }
-    }
-
-    override fun getCurrentMenuItem(): Int {
-        return R.id.nav_about
     }
 
     companion object {

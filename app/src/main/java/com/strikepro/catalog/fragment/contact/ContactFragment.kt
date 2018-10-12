@@ -9,10 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.strikepro.catalog.R
-import com.strikepro.catalog.`interface`.IBackStack
 import kotlinx.android.synthetic.main.fragment_contact.*
 
-class ContactFragment : Fragment(), IBackStack {
+class ContactFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -39,10 +38,6 @@ class ContactFragment : Fragment(), IBackStack {
             contact_pager.currentItem = savedInstanceState.getInt(STATE_KEY_POSITION, 0)
 
         super.onViewStateRestored(savedInstanceState)
-    }
-
-    override fun getCurrentMenuItem(): Int {
-        return R.id.nav_contact
     }
 
     private class ContactSlidePagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {

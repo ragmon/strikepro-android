@@ -4,21 +4,15 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
-import com.strikepro.catalog.`interface`.IBackStack
-import com.strikepro.catalog.fragment.AboutFragment
-import com.strikepro.catalog.fragment.blog.BlogFragment
-import com.strikepro.catalog.fragment.contact.ContactFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, FragmentManager.OnBackStackChangedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +23,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
-
-        supportFragmentManager.addOnBackStackChangedListener(this)
 
         nav_view.setNavigationItemSelectedListener(this)
 
@@ -47,29 +39,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         Log.d(TAG, "onSaveInstanceState")
 
         super.onSaveInstanceState(outState)
-    }
-
-    override fun onBackStackChanged() {
-        Log.d(TAG, "onBackStackChanged")
-
-        getCurrentMenuItem()?.isChecked = true
-    }
-
-    private fun getCurrentMenuItem(): MenuItem? {
-        return if (supportFragmentManager.backStackEntryCount - 1 >= 0) {
-            val fragment: Fragment? = supportFragmentManager.findFragmentById(R.id.frame_content)
-            val menuItemId: Int? = if (fragment is IBackStack)
-                (fragment as IBackStack).getCurrentMenuItem()
-            else
-                null
-
-            if (menuItemId != null)
-                nav_view.menu.findItem(menuItemId)
-            else
-                null
-        }
-        else
-            null
     }
 
     override fun onBackPressed() {
@@ -111,35 +80,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun navCatalogItem() {
-        //
+        startActivity(Intent(this, CatalogActivity::class.java))
     }
 
     private fun navBlogItem() {
-        supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.frame_content, BlogFragment.newInstance())
-                .addToBackStack(BlogFragment.BACK_STACK_NAME)
-                .commit()
+        startActivity(Intent(this, BlogActivity::class.java))
     }
 
     private fun navWhereBuy() {
-        //
+        startActivity(Intent(this, WhereBuyActivity::class.java))
     }
 
     private fun navContactItem() {
-        supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.frame_content, ContactFragment.newInstance())
-                .addToBackStack(ContactFragment.BACK_STACK_NAME)
-                .commit()
+        startActivity(Intent(this, ContactActivity::class.java))
     }
 
     private fun navAboutItem() {
-        supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.frame_content, AboutFragment.newInstance())
-                .addToBackStack(AboutFragment.BACK_STACK_NAME)
-                .commit()
+        startActivity(Intent(this, AboutActivity::class.java))
     }
 
     // ### End of navigation callbacks ############################################################
