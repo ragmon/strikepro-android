@@ -32,6 +32,7 @@ class PostFragment : Fragment() {
 
     companion object {
         const val ARG_PARAM_POST_ID = "post_id"
+        const val BACK_STACK_TAG = "post"
 
         /**
          * Use this factory method to create a new instance of
