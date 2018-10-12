@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".AboutActivity">
 
+    <fragment
+        android:id="@+id/about_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.strikepro.catalog.fragment.AboutFragment"
+        tools:layout="@layout/fragment_about"
+        />
+
 </android.support.constraint.ConstraintLayout>

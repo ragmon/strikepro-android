@@ -8,20 +8,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.strikepro.catalog.R
+import kotlinx.android.synthetic.main.fragment_about.*
 import kotlinx.android.synthetic.main.fragment_about.view.*
 
-class AboutFragment : Fragment() {
-
+class AboutFragment : Fragment(), View.OnLongClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_about, container, false)
+        return inflater.inflate(R.layout.fragment_about, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        brandLogo.setOnLongClickListener(this)
 
         loadDescriptionContent(view)
 
-        return view
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onStart() {
@@ -42,6 +46,12 @@ class AboutFragment : Fragment() {
         } else {
             view.about_company_desc.text = Html.fromHtml(getString(R.string.about_longdesc))
         }
+    }
+
+    override fun onLongClick(v: View?): Boolean {
+        Toast.makeText(activity, getString(R.string.developers), Toast.LENGTH_LONG).show()
+
+        return true
     }
 
     companion object {

@@ -21,7 +21,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/brandLogo"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:layout_marginBottom="8dp"
@@ -33,15 +33,15 @@
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="1.0"
+                />
 
             <TextView
                 android:id="@+id/about_company_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Long text about company"
-                android:textAlignment="center" />
+                android:text="Long text about company" />
         </LinearLayout>
     </ScrollView>
 

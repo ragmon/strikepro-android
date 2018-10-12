@@ -30,6 +30,7 @@
         </activity>
         <activity
             android:name=".BlogActivity"
+            android:label="Блог"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -37,6 +38,7 @@
         </activity>
         <activity
             android:name=".CatalogActivity"
+            android:label="Каталог"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -44,6 +46,7 @@
         </activity>
         <activity
             android:name=".AboutActivity"
+            android:label="О нас"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
