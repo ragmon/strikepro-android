@@ -18,5 +18,6 @@ class StoreViewModel: ViewModel() {
 
     private fun loadStores() {
         // Do an asynchronous operation to fetch stores
+        //
     }
 }

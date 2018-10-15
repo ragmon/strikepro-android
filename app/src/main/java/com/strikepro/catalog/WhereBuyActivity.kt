@@ -1,10 +1,17 @@
 package com.strikepro.catalog
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import com.strikepro.catalog.model.wherebuy.City
+import com.strikepro.catalog.model.wherebuy.Store
+import com.strikepro.catalog.viewmodel.wherebuy.CityViewModel
+import com.strikepro.catalog.viewmodel.wherebuy.StoreViewModel
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -12,6 +19,9 @@ import com.yandex.mapkit.map.CameraPosition
 import kotlinx.android.synthetic.main.activity_where_buy.*
 
 class WhereBuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+
+    private lateinit var cityViewModel: CityViewModel
+    private lateinit var storeViewModel: StoreViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +37,35 @@ class WhereBuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
                 null
         )
 
+        map_city.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
         map_city.onItemSelectedListener = this
+
+        cityViewModel = ViewModelProviders.of(this).get(CityViewModel::class.java)
+        storeViewModel = ViewModelProviders.of(this).get(StoreViewModel::class.java)
+
+        cityViewModel.getCities().observe(this, cityObserver)
+        cityViewModel.getSelectedCity().observe(this, selectedCityObserver)
+        storeViewModel.getStores().observe(this, storeObserver)
+    }
+
+    private val cityObserver = Observer<List<City>> { cities ->
+        Log.d(TAG, "Cities count = ${cities?.size}")
+        cities?.forEachIndexed { index, city ->
+            // TODO: fix render logic
+            (map_city.adapter as ArrayAdapter<String>).insert(city.name, index)
+        }
+    }
+
+    private val selectedCityObserver = Observer<City> { city ->
+        Log.d(TAG, "Selected city $city")
+        //
+    }
+
+    private val storeObserver = Observer<List<Store>> { stores ->
+        Log.d(TAG, "Stores count = ${stores?.size}")
+        stores?.forEach { store ->
+            // TODO: release render logic
+        }
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
