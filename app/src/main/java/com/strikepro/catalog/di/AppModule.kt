@@ -5,12 +5,21 @@ import android.arch.persistence.room.Room
 
 import com.strikepro.catalog.common.BASE_URL
 import com.strikepro.catalog.common.DATABASE_NAME
+
 import com.strikepro.catalog.db.CatalogDB
+import com.strikepro.catalog.db.blog.CategoryDAO
+import com.strikepro.catalog.db.blog.PostDAO
+import com.strikepro.catalog.db.catalog.ArticleDAO
+import com.strikepro.catalog.db.catalog.GroupDAO
+import com.strikepro.catalog.db.wherebuy.CityDAO
+import com.strikepro.catalog.db.wherebuy.StoreDAO
+
 import com.strikepro.catalog.service.blog.CategoryService
 import com.strikepro.catalog.service.catalog.ArticleService
 import com.strikepro.catalog.service.catalog.GroupService
 import com.strikepro.catalog.service.wherebuy.CityService
 import com.strikepro.catalog.service.wherebuy.StoreService
+
 import com.strikepro.catalog.util.LiveDataCallAdapterFactory
 
 import dagger.Module

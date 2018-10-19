@@ -47,7 +47,7 @@
         </activity>
         <activity
             android:name=".AboutActivity"
-            android:label="О нас"
+            android:label="О компании"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

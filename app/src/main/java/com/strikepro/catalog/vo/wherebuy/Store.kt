@@ -1,6 +1,19 @@
 package com.strikepro.catalog.vo.wherebuy
 
-class Store (
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.ForeignKey
+
+@Entity(
+        primaryKeys = ["id"],
+        foreignKeys = [
+            ForeignKey(
+                    entity = City::class,
+                    parentColumns = ["id"],
+                    childColumns = ["city_id"]
+            )
+        ]
+)
+data class Store (
         var id: Int,
         var name: String,
         var address: String,

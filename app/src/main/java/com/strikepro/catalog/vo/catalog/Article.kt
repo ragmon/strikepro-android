@@ -1,6 +1,21 @@
 package com.strikepro.catalog.vo.catalog
 
-class Article (
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.ForeignKey
+import android.arch.persistence.room.ForeignKey.CASCADE
+
+@Entity(
+        primaryKeys = ["id"],
+        foreignKeys = [
+            ForeignKey(
+                    entity = Group::class,
+                    parentColumns = ["id"],
+                    childColumns = ["group_id"],
+                    onDelete = CASCADE
+            )
+        ]
+)
+data class Article (
         var id: Int,
         var group_id: Int,
         var new: Boolean,

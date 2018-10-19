@@ -1,6 +1,11 @@
 package com.strikepro.catalog.vo.wherebuy
 
-class City (
+import android.arch.persistence.room.Entity
+
+@Entity(
+        primaryKeys = ["id"]
+)
+data class City (
         var id: Int,
         var country_id: Int,
         var name: String,

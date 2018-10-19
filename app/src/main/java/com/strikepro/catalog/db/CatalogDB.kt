@@ -29,7 +29,7 @@ import com.strikepro.catalog.vo.wherebuy.Store
             City::class,
             Store::class
         ],
-        version = 3,
+        version = 1,
         exportSchema = false
 )
 abstract class CatalogDB: RoomDatabase() {

@@ -3,8 +3,7 @@ package com.strikepro.catalog.vo.blog
 import android.arch.persistence.room.Entity
 
 @Entity(
-     primaryKeys = ["id"]
-     // TODO: define foreign keys
+        primaryKeys = ["id"]
 )
 data class Category (
         var id: Int,
