@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.strikepro.catalog.R
-import com.strikepro.catalog.model.blog.Post
+import com.strikepro.catalog.vo.blog.Post
 
 /**
  * A simple [Fragment] subclass.

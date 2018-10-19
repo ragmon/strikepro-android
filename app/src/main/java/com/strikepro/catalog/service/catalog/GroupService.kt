@@ -1,6 +1,6 @@
 package com.strikepro.catalog.service.catalog
 
-import com.strikepro.catalog.model.catalog.Group
+import com.strikepro.catalog.vo.catalog.Group
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

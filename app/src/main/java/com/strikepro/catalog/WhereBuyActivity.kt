@@ -8,8 +8,8 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.strikepro.catalog.model.wherebuy.City
-import com.strikepro.catalog.model.wherebuy.Store
+import com.strikepro.catalog.vo.wherebuy.City
+import com.strikepro.catalog.vo.wherebuy.Store
 import com.strikepro.catalog.viewmodel.wherebuy.CityViewModel
 import com.strikepro.catalog.viewmodel.wherebuy.StoreViewModel
 import com.yandex.mapkit.Animation

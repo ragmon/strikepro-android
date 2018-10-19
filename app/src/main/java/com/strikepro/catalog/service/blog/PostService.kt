@@ -1,6 +1,6 @@
 package com.strikepro.catalog.service.blog
 
-import com.strikepro.catalog.model.blog.Post
+import com.strikepro.catalog.vo.blog.Post
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

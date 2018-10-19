@@ -1,4 +1,4 @@
-package com.strikepro.catalog.model.wherebuy
+package com.strikepro.catalog.vo.wherebuy
 
 class City (
         var id: Int,

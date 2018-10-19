@@ -3,7 +3,7 @@ package com.strikepro.catalog.viewmodel.catalog
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.strikepro.catalog.model.catalog.Article
+import com.strikepro.catalog.vo.catalog.Article
 
 class ArticleViewModel: ViewModel() {
     private lateinit var articles: MutableLiveData<List<Article>>

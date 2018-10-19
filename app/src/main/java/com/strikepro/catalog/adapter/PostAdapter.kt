@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.strikepro.catalog.R
 import com.strikepro.catalog.fragment.blog.PostFragment
-import com.strikepro.catalog.model.blog.Post
+import com.strikepro.catalog.vo.blog.Post
 import kotlinx.android.synthetic.main.blog_item.view.*
 
 class PostAdapter(private val mContext: Context) : BaseAdapter() {

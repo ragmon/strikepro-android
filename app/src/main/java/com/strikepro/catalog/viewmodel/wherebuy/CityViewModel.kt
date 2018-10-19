@@ -3,7 +3,7 @@ package com.strikepro.catalog.viewmodel.wherebuy
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.strikepro.catalog.model.wherebuy.City
+import com.strikepro.catalog.vo.wherebuy.City
 
 class CityViewModel: ViewModel() {
     private lateinit var cities: MutableLiveData<List<City>>

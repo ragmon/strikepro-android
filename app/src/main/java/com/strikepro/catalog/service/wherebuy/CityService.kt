@@ -1,6 +1,6 @@
 package com.strikepro.catalog.service.wherebuy
 
-import com.strikepro.catalog.model.wherebuy.City
+import com.strikepro.catalog.vo.wherebuy.City
 import retrofit2.Call
 import retrofit2.http.GET
 
