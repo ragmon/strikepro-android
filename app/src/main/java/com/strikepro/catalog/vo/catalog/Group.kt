@@ -30,14 +30,6 @@ data class Group (
         var name: String,
         var fullname: String,
         var description: String,
-        var cols: Int,
-        var og_url: String,
-        var og_image: String,
-        var og_type: String,
-        var og_title: String,
-        var meta_description: String,
-        var meta_keywords: String,
-        var meta_title: String,
         var created_at: String,
         var updated_at: String
 )

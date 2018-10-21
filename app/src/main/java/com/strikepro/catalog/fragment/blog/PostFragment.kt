@@ -49,12 +49,12 @@ class PostFragment : Fragment() {
                     }
                 }
 
-        val dummyPost = Post(
-                1,
-                "Some dummy post title",
-                "https://picsum.photos/g/400/200",
-                "15.07.2016",
-                "Post short desc"
-        )
+//        val dummyPost = Post(
+//                1,
+//                "Some dummy post title",
+//                "https://picsum.photos/g/400/200",
+//                "15.07.2016",
+//                "Post short desc"
+//        )
     }
 }

@@ -5,6 +5,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface CategoryService {
-    @GET("blog/categories")
+    @GET("api/v1/blog/categories")
     fun list(): Call<List<Category>>
 }
