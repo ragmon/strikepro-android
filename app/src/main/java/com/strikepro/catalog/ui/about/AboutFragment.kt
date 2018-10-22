@@ -1,4 +1,4 @@
-package com.strikepro.catalog.fragment
+package com.strikepro.catalog.ui.about
 
 import android.os.Build
 import android.os.Bundle
@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import com.strikepro.catalog.R
+
 import kotlinx.android.synthetic.main.fragment_about.*
 import kotlinx.android.synthetic.main.fragment_about.view.*
 

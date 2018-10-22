@@ -1,11 +1,11 @@
 package com.strikepro.catalog.di
 
-import com.strikepro.catalog.fragment.AboutFragment
-import com.strikepro.catalog.fragment.blog.BlogFragment
-import com.strikepro.catalog.fragment.blog.PostFragment
-import com.strikepro.catalog.fragment.contact.ContactFragment
-import com.strikepro.catalog.fragment.contact.PartnerFragment
-import com.strikepro.catalog.fragment.contact.StoreFragment
+import com.strikepro.catalog.ui.about.AboutFragment
+import com.strikepro.catalog.ui.blog.BlogFragment
+import com.strikepro.catalog.ui.blog.PostFragment
+import com.strikepro.catalog.ui.contact.ContactFragment
+import com.strikepro.catalog.ui.contact.PartnerFragment
+import com.strikepro.catalog.ui.contact.StoreFragment
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

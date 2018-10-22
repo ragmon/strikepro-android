@@ -1,4 +1,4 @@
-package com.strikepro.catalog.fragment.blog
+package com.strikepro.catalog.ui.blog
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.strikepro.catalog.R
-import com.strikepro.catalog.vo.blog.Post
 
 /**
  * A simple [Fragment] subclass.

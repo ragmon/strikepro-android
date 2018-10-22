@@ -1,4 +1,4 @@
-package com.strikepro.catalog.fragment.blog
+package com.strikepro.catalog.ui.blog
 
 import android.content.Context
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.strikepro.catalog.R
-import com.strikepro.catalog.adapter.PostAdapter
 import kotlinx.android.synthetic.main.fragment_blog.*
 
 class BlogFragment : Fragment() {

@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import com.strikepro.catalog.fragment.blog.BlogFragment
-import com.strikepro.catalog.fragment.blog.PostFragment
+import com.strikepro.catalog.ui.blog.BlogFragment
+import com.strikepro.catalog.ui.blog.PostFragment
 
 class BlogActivity : AppCompatActivity() {
 

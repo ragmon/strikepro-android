@@ -1,16 +1,12 @@
-package com.strikepro.catalog.adapter
+package com.strikepro.catalog.ui.blog
 
 import android.content.Context
-import android.support.v4.app.FragmentActivity
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.strikepro.catalog.R
-import com.strikepro.catalog.fragment.blog.PostFragment
 import com.strikepro.catalog.vo.blog.Post
-import kotlinx.android.synthetic.main.blog_item.view.*
 
 class PostAdapter(private val mContext: Context) : BaseAdapter() {
 

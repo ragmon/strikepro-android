@@ -1,4 +1,4 @@
-package com.strikepro.catalog.fragment.contact
+package com.strikepro.catalog.ui.contact
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
