@@ -15,6 +15,9 @@ abstract class StoreDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg stores: Store)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun insert(stores: List<Store>)
+
     @Query("SELECT * FROM store WHERE id = :id LIMIT 1")
     abstract fun load(id: Int): LiveData<Store>
 

@@ -18,6 +18,9 @@ abstract class CategoryDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg categories: Category)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun insert(categories: List<Category>)
+
     @Query("SELECT * FROM category WHERE id = :id LIMIT 1")
     abstract fun loadByID(id: Int): LiveData<Category>
 

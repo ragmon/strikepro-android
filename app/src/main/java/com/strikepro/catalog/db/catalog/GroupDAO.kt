@@ -16,6 +16,9 @@ abstract class GroupDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg groups: Group)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun insert(groups: List<Group>)
+
     @Query("SELECT * FROM `group` WHERE id = :id LIMIT 1")
     abstract fun loadByID(id: Int): LiveData<Group>
 

@@ -2,10 +2,11 @@ package com.strikepro.catalog
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
+
 import com.strikepro.catalog.ui.blog.BlogFragment
 import com.strikepro.catalog.ui.blog.PostFragment
+import timber.log.Timber
 
 class BlogActivity : AppCompatActivity() {
 
@@ -18,7 +19,7 @@ class BlogActivity : AppCompatActivity() {
             if (intent.hasExtra(PostFragment.ARG_PARAM_POST_ID)) {
                 val postId: Int = intent.getIntExtra("post_id", -1)
 
-                Log.d(TAG, "Open blog post with ID #$postId")
+                Timber.d("Open blog post with ID #%d", postId)
 
                 supportFragmentManager
                         .beginTransaction()
@@ -33,7 +34,7 @@ class BlogActivity : AppCompatActivity() {
                         else
                             null
 
-                Log.d(TAG, "Open blog categories & post list with category ID #$categoryId")
+                Timber.d("Open blog categories & post list with category ID #%d", categoryId)
 
                 supportFragmentManager
                         .beginTransaction()

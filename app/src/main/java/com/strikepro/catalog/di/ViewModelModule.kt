@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.strikepro.catalog.viewmodel.CatalogViewModelFactory
 
-import com.strikepro.catalog.viewmodel.blog.CategoryViewModel
+import com.strikepro.catalog.ui.blog.BlogViewModel
 import com.strikepro.catalog.viewmodel.blog.PostViewModel
 import com.strikepro.catalog.viewmodel.catalog.ArticleViewModel
 import com.strikepro.catalog.viewmodel.catalog.GroupViewModel
@@ -21,13 +21,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(CategoryViewModel::class)
-    abstract fun bindCategoryViewModel(categoryViewModel: CategoryViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(PostViewModel::class)
-    abstract fun bindPostViewModel(postViewModel: PostViewModel): ViewModel
+    @ViewModelKey(BlogViewModel::class)
+    abstract fun bindCategoryViewModel(blogViewModel: BlogViewModel): ViewModel
 
     @Binds
     @IntoMap

@@ -19,8 +19,11 @@ package com.strikepro.catalog.util
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.OnLifecycleEvent
+
 import android.support.v4.app.Fragment
+
 import java.lang.IllegalStateException
+
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 

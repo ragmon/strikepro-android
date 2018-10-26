@@ -16,6 +16,9 @@ abstract class PostDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg posts: Post)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun insert(posts: List<Post>)
+
     @Query("SELECT * FROM post WHERE id = :id LIMIT 1")
     abstract fun load(id: Int): LiveData<Post>
 

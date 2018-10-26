@@ -1,7 +1,10 @@
 package com.strikepro.catalog.service.wherebuy
 
+import android.arch.lifecycle.LiveData
+
+import com.strikepro.catalog.api.ApiResponse
 import com.strikepro.catalog.vo.wherebuy.Store
-import retrofit2.Call
+
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -9,5 +12,5 @@ interface StoreService {
     @GET("stores/{city_id}")
     fun list(
             @Path("city_id") cityId: Int
-    ): Call<List<Store>>
+    ): LiveData<ApiResponse<List<Store>>>
 }

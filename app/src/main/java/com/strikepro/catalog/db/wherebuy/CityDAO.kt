@@ -15,6 +15,9 @@ abstract class CityDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg cities: City)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun insert(cities: List<City>)
+
     @Query("SELECT * FROM city WHERE id = :id LIMIT 1")
     abstract fun load(id: Int): LiveData<City>
 

@@ -1,5 +1,7 @@
 package com.strikepro.catalog.service.catalog
 
+import android.arch.lifecycle.LiveData
+import com.strikepro.catalog.api.ApiResponse
 import com.strikepro.catalog.vo.catalog.Article
 import retrofit2.Call
 import retrofit2.http.GET
@@ -16,5 +18,5 @@ interface ArticleService {
     fun list(
             @Path("groupId") groupId: Int,
             @Query("page") page: Int = 1
-    ): Call<List<Article>>
+    ): LiveData<ApiResponse<List<Article>>>
 }

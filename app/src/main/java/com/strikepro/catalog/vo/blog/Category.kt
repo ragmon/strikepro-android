@@ -7,5 +7,7 @@ import android.arch.persistence.room.Entity
 )
 data class Category (
         var id: Int,
-        var name: String
+        var name: String,
+        var created_at: String,
+        var updated_at: String
 )
