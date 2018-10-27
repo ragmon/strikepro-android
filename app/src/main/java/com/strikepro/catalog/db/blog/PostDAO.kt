@@ -20,7 +20,10 @@ abstract class PostDAO {
     abstract fun insert(posts: List<Post>)
 
     @Query("SELECT * FROM post WHERE id = :id LIMIT 1")
-    abstract fun load(id: Int): LiveData<Post>
+    abstract fun loadByID(id: Int): LiveData<Post>
+
+    @Query("SELECT * FROM post")
+    abstract fun loadList(): LiveData<List<Post>>
 
     @Query("SELECT * FROM post")
     abstract fun loadPaging(): DataSource.Factory<Int, Post>

@@ -5,9 +5,8 @@ import android.arch.lifecycle.ViewModelProvider
 import com.strikepro.catalog.viewmodel.CatalogViewModelFactory
 
 import com.strikepro.catalog.ui.blog.BlogViewModel
-import com.strikepro.catalog.viewmodel.blog.PostViewModel
-import com.strikepro.catalog.viewmodel.catalog.ArticleViewModel
-import com.strikepro.catalog.viewmodel.catalog.GroupViewModel
+import com.strikepro.catalog.ui.catalog.ArticleViewModel
+import com.strikepro.catalog.ui.catalog.GroupViewModel
 import com.strikepro.catalog.viewmodel.wherebuy.CityViewModel
 import com.strikepro.catalog.viewmodel.wherebuy.StoreViewModel
 

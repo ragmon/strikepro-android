@@ -22,6 +22,12 @@ abstract class GroupDAO {
     @Query("SELECT * FROM `group` WHERE id = :id LIMIT 1")
     abstract fun loadByID(id: Int): LiveData<Group>
 
+    @Query("SELECT * FROM `group` WHERE parent_id IS NULL")
+    abstract fun loadRootList(): LiveData<List<Group>>
+
+    @Query("SELECT * FROM `group` WHERE parent_id = :parentID")
+    abstract fun loadList(parentID: Int): LiveData<List<Group>>
+
     @Query("SELECT * FROM `group`")
     abstract fun loadPaging(): DataSource.Factory<Int, Group>
 

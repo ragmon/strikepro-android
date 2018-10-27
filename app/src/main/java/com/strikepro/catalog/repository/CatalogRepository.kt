@@ -32,7 +32,8 @@ class CatalogRepository @Inject constructor(
 
     fun loadGroupList(parentID: Int?): LiveData<Resource<List<Group>>> {
         return object : NetworkBoundResource<List<Group>, List<Group>>(appExecutors) {
-            override fun loadFromDB(): LiveData<List<Group>> = groupDAO.loadPaging()
+            override fun loadFromDB(): LiveData<List<Group>>
+                    = if (parentID == null) groupDAO.loadRootList() else groupDAO.loadList(parentID)
 
             override fun createCall(): LiveData<ApiResponse<List<Group>>>
                     = if (parentID != null) groupService.listByParent(parentID) else groupService.list()
@@ -48,7 +49,7 @@ class CatalogRepository @Inject constructor(
 
     fun loadArticleList(groupID: Int): LiveData<Resource<List<Article>>> {
         return object : NetworkBoundResource<List<Article>, List<Article>>(appExecutors) {
-            override fun loadFromDB(): LiveData<List<Article>> = articleDAO.loadPaging(groupID)
+            override fun loadFromDB(): LiveData<List<Article>> = articleDAO.loadList(groupID)
 
             override fun createCall(): LiveData<ApiResponse<List<Article>>> = articleService.list(groupID)
 

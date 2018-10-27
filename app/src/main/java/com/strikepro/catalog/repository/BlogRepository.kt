@@ -46,7 +46,7 @@ class BlogRepository @Inject constructor(
             override fun createCall(): LiveData<ApiResponse<List<Post>>>
                     = if (categoryID != null) postService.categoryList(categoryID) else postService.list()
 
-            override fun loadFromDB(): LiveData<List<Post>> = postDAO.loadPaging()
+            override fun loadFromDB(): LiveData<List<Post>> = postDAO.loadList()
 
             override fun saveCallResult(item: List<Post>) {
                 postDAO.insert(item)

@@ -7,8 +7,8 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.MenuItem
+
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -25,20 +25,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-
-        Log.d(TAG, "onCreate")
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        Log.d(TAG, "onRestoreInstanceState")
-
-        super.onRestoreInstanceState(savedInstanceState)
-    }
-
-    override fun onSaveInstanceState(outState: Bundle?) {
-        Log.d(TAG, "onSaveInstanceState")
-
-        super.onSaveInstanceState(outState)
     }
 
     override fun onBackPressed() {
@@ -50,8 +36,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        Log.d(TAG, "onNavigationItemSelected; item = ${item.itemId}")
-
         // Handle navigation view item clicks here.
         when (item.itemId) {
             // Common navigation items
@@ -115,9 +99,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun openInstagram() {
         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/strikeprorussia")))
-    }
-
-    companion object {
-        const val TAG = "MainActivity"
     }
 }
