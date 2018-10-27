@@ -17,10 +17,13 @@
 package com.strikepro.catalog.di
 
 import android.app.Application
+
 import com.strikepro.catalog.CatalogApp
+
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+
 import javax.inject.Singleton
 
 @Singleton

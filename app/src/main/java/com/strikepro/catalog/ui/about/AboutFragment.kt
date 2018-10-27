@@ -4,7 +4,6 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.text.Html
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,18 +26,6 @@ class AboutFragment : Fragment(), View.OnLongClickListener {
         loadDescriptionContent(view)
 
         super.onViewCreated(view, savedInstanceState)
-    }
-
-    override fun onStart() {
-        Log.d(TAG, "onStart")
-
-        super.onStart()
-    }
-
-    override fun onResume() {
-        Log.d(TAG, "onResume")
-
-        super.onResume()
     }
 
     private fun loadDescriptionContent(view: View) {
@@ -64,9 +51,5 @@ class AboutFragment : Fragment(), View.OnLongClickListener {
          */
         @JvmStatic
         fun newInstance() = AboutFragment()
-
-        const val TAG = "AboutFragment"
-
-        const val BACK_STACK_NAME = "about"
     }
 }

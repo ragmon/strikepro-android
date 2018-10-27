@@ -5,10 +5,8 @@ import android.arch.lifecycle.ViewModelProvider
 import com.strikepro.catalog.viewmodel.CatalogViewModelFactory
 
 import com.strikepro.catalog.ui.blog.BlogViewModel
-import com.strikepro.catalog.ui.catalog.ArticleViewModel
-import com.strikepro.catalog.ui.catalog.GroupViewModel
-import com.strikepro.catalog.viewmodel.wherebuy.CityViewModel
-import com.strikepro.catalog.viewmodel.wherebuy.StoreViewModel
+import com.strikepro.catalog.ui.catalog.CatalogViewModel
+import com.strikepro.catalog.ui.wherebuy.WherebuyViewModel
 
 import dagger.Binds
 import dagger.Module
@@ -25,23 +23,13 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(ArticleViewModel::class)
-    abstract fun bindArticleViewModel(articleViewModel: ArticleViewModel): ViewModel
+    @ViewModelKey(CatalogViewModel::class)
+    abstract fun bindCatalogViewModel(articleViewModel: CatalogViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(GroupViewModel::class)
-    abstract fun bindGroupViewModel(groupViewModel: GroupViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(CityViewModel::class)
-    abstract fun bindCityViewModel(cityViewModel: CityViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(StoreViewModel::class)
-    abstract fun bindStoreViewModel(storeViewModel: StoreViewModel): ViewModel
+    @ViewModelKey(WherebuyViewModel::class)
+    abstract fun bindCityViewModel(cityViewModel: WherebuyViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: CatalogViewModelFactory): ViewModelProvider.Factory
