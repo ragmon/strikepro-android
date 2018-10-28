@@ -19,17 +19,17 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(BlogViewModel::class)
-    abstract fun bindCategoryViewModel(blogViewModel: BlogViewModel): ViewModel
+    abstract fun bindBlogViewModel(blogViewModel: BlogViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(CatalogViewModel::class)
-    abstract fun bindCatalogViewModel(articleViewModel: CatalogViewModel): ViewModel
+    abstract fun bindCatalogViewModel(catalogViewModel: CatalogViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(WherebuyViewModel::class)
-    abstract fun bindCityViewModel(cityViewModel: WherebuyViewModel): ViewModel
+    abstract fun bindWherebuyViewModel(wherebuyViewModel: WherebuyViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: CatalogViewModelFactory): ViewModelProvider.Factory
