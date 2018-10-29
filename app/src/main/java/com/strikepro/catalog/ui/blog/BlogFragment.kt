@@ -32,27 +32,24 @@ class BlogFragment : Fragment(), Injectable {
 
     // mutable for testing
     var dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
-    var binding by autoCleared<BlogFragmentBinding>()
+//    var binding by autoCleared<BlogFragmentBinding>()
 
     private lateinit var blogViewModel: BlogViewModel
-    private val adapter by autoCleared<CategoryAdapter>()
+//    private val adapter by autoCleared<CategoryAdapter>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val dataBinding = DataBindingUtil.inflate<BlogFragmentBinding>(
-                inflater,
-                R.layout.fragment_blog,
-                container,
-                false,
-                dataBindingComponent
-        )
-        dataBinding.retryCallback = object : RetryCallback {
-            override fun retry() {
-                blogViewModel.retry()
-            }
-        }
-        binding = dataBinding
-        return dataBinding.root
+//        val dataBinding = DataBindingUtil.inflate<BlogFragmentBinding>(
+//                inflater,
+//                R.layout.fragment_blog,
+//                container,
+//                false,
+//                dataBindingComponent
+//        )
+//        binding = dataBinding
+//        return dataBinding.root
+
+        return inflater.inflate(R.layout.fragment_blog, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

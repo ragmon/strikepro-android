@@ -62,7 +62,7 @@
                 android:value="com.strikepro.catalog.MainActivity" />
         </activity>
         <activity
-            android:name=".WhereBuyActivity"
+            android:name=".WherebuyActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

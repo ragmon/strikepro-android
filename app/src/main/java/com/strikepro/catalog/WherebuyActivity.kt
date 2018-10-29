@@ -4,24 +4,26 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+
+import com.strikepro.catalog.api.Resource
+import com.strikepro.catalog.common.YANDEX_MAP_API_KEY
+import com.strikepro.catalog.ui.wherebuy.WherebuyViewModel
 import com.strikepro.catalog.vo.wherebuy.City
 import com.strikepro.catalog.vo.wherebuy.Store
-import com.strikepro.catalog.viewmodel.wherebuy.CityViewModel
-import com.strikepro.catalog.viewmodel.wherebuy.StoreViewModel
+
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
+
 import kotlinx.android.synthetic.main.activity_where_buy.*
 
-class WhereBuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class WherebuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    private lateinit var cityViewModel: CityViewModel
-    private lateinit var storeViewModel: StoreViewModel
+    private lateinit var wherebuyViewModel: WherebuyViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,41 +42,44 @@ class WhereBuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         map_city.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
         map_city.onItemSelectedListener = this
 
-        cityViewModel = ViewModelProviders.of(this).get(CityViewModel::class.java)
-        storeViewModel = ViewModelProviders.of(this).get(StoreViewModel::class.java)
+        wherebuyViewModel = ViewModelProviders.of(this).get(WherebuyViewModel::class.java)
 
-        cityViewModel.getCities().observe(this, cityObserver)
-        cityViewModel.getSelectedCity().observe(this, selectedCityObserver)
-        storeViewModel.getStores().observe(this, storeObserver)
+        wherebuyViewModel.getCities().observe(this, cityObserver)
+        wherebuyViewModel.getSelectedCity().observe(this, selectedCityObserver)
+        wherebuyViewModel.getStores().observe(this, storeObserver)
     }
 
-    private val cityObserver = Observer<List<City>> { cities ->
-        Log.d(TAG, "Cities count = ${cities?.size}")
-        cities?.forEachIndexed { index, city ->
-            // TODO: fix render logic
-            (map_city.adapter as ArrayAdapter<String>).insert(city.name, index)
-        }
+    private val cityObserver = Observer<Resource<List<City>>> { cities ->
+//        Log.d(TAG, "Cities count = ${cities?.size}")
+//        cities?.forEachIndexed { index, city ->
+//            // TODO: fix render logic
+//            (map_city.adapter as ArrayAdapter<String>).insert(city.name, index)
+//        }
     }
 
     private val selectedCityObserver = Observer<City> { city ->
-        Log.d(TAG, "Selected city $city")
+//        Log.d(TAG, "Selected city $city")
         //
     }
 
-    private val storeObserver = Observer<List<Store>> { stores ->
-        Log.d(TAG, "Stores count = ${stores?.size}")
-        stores?.forEach { store ->
-            // TODO: release render logic
-        }
+    private val storeObserver = Observer<Resource<List<Store>>> { stores ->
+//        Log.d(TAG, "Stores count = ${stores?.size}")
+//        stores?.forEach { store ->
+//            // TODO: release render logic
+//        }
     }
 
+    // ### Yandex MapKit Callbacks ################################################################
+
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        Log.d(TAG, "onNothingSelected")
+//        Log.d(TAG, "onNothingSelected")
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        Log.d(TAG, "onItemSelected; position=$position; id=$id")
+//        Log.d(TAG, "onItemSelected; position=$position; id=$id")
     }
+
+    // ### End Of Yandex MapKit Callbacks #########################################################
 
     override fun onStart() {
         super.onStart()
@@ -96,10 +101,5 @@ class WhereBuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
     private fun stopYandexMap() {
         map_view.onStop()
         MapKitFactory.getInstance().onStop()
-    }
-
-    companion object {
-        const val TAG = "WhereBuyActivity"
-        const val YANDEX_MAP_API_KEY = "cfd174d4-56fa-453c-8447-9a7bed58f232"
     }
 }

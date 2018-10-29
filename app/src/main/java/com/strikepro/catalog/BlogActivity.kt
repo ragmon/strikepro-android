@@ -6,6 +6,7 @@ import android.view.MenuItem
 
 import com.strikepro.catalog.ui.blog.BlogFragment
 import com.strikepro.catalog.ui.blog.PostFragment
+
 import timber.log.Timber
 
 class BlogActivity : AppCompatActivity() {
@@ -51,10 +52,6 @@ class BlogActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
-    }
-
-    companion object {
-        const val TAG = "BlogActivity"
     }
 
 }

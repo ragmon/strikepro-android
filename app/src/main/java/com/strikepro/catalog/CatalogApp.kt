@@ -2,10 +2,14 @@ package com.strikepro.catalog
 
 import android.app.Activity
 import android.app.Application
+
 import com.strikepro.catalog.di.AppInjector
+
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+
 import timber.log.Timber
+
 import javax.inject.Inject
 
 class CatalogApp : Application(), HasActivityInjector {

@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun navWhereBuy() {
-        startActivity(Intent(this, WhereBuyActivity::class.java))
+        startActivity(Intent(this, WherebuyActivity::class.java))
     }
 
     private fun navContactItem() {
