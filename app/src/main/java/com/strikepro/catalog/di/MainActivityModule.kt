@@ -1,6 +1,7 @@
 package com.strikepro.catalog.di
 
 import com.strikepro.catalog.MainActivity
+import com.strikepro.catalog.di.builder.MainActivityFragmentBuildersModule
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -9,7 +10,7 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class MainActivityModule {
 
-    @ContributesAndroidInjector(modules = [FragmentBuildersModule::class])
+    @ContributesAndroidInjector(modules = [MainActivityFragmentBuildersModule::class])
     abstract fun contributeMainActivity(): MainActivity
 
 }
