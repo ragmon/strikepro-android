@@ -14,6 +14,7 @@ import com.strikepro.catalog.vo.blog.Category
 import com.strikepro.catalog.vo.blog.Post
 import com.strikepro.catalog.vo.catalog.Article
 import com.strikepro.catalog.vo.catalog.Group
+import com.strikepro.catalog.vo.main.FeedItem
 import com.strikepro.catalog.vo.wherebuy.City
 import com.strikepro.catalog.vo.wherebuy.Store
 
@@ -22,6 +23,7 @@ import com.strikepro.catalog.vo.wherebuy.Store
  */
 @Database(
         entities = [
+            FeedItem::class,
             Category::class,
             Post::class,
             Article::class,
@@ -33,6 +35,8 @@ import com.strikepro.catalog.vo.wherebuy.Store
         exportSchema = false
 )
 abstract class CatalogDB: RoomDatabase() {
+
+    abstract fun feedDAO(): FeedDAO
 
     abstract fun categoryDAO(): CategoryDAO
     abstract fun postDAO(): PostDAO

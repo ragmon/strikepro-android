@@ -11,11 +11,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+
+import dagger.android.support.HasSupportFragmentInjector
 
 import kotlinx.android.synthetic.main.activity_contact.*
 import kotlinx.android.synthetic.main.fragment_contact2.view.*
 
-class ContactActivity : AppCompatActivity() {
+import javax.inject.Inject
+
+class ContactActivity : AppCompatActivity(), HasSupportFragmentInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     /**
      * The [android.support.v4.view.PagerAdapter] that will provide
@@ -100,4 +109,7 @@ class ContactActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
+
 }

@@ -4,6 +4,9 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.ForeignKey
 import android.arch.persistence.room.ForeignKey.CASCADE
 
+import com.strikepro.catalog.vo.BaseFeedItem
+import com.strikepro.catalog.vo.ResourceType
+
 @Entity(
         primaryKeys = ["id"],
         foreignKeys = [
@@ -25,4 +28,4 @@ data class Post(
         var image: String,
         var public_at: String,
         var created_at: String
-)
+) : BaseFeedItem(ResourceType.POST)

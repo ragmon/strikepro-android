@@ -4,9 +4,10 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
+//import android.widget.ArrayAdapter
 
 import com.strikepro.catalog.api.Resource
 import com.strikepro.catalog.common.YANDEX_MAP_API_KEY
@@ -18,10 +19,19 @@ import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
+import dagger.android.AndroidInjector
+
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 
 import kotlinx.android.synthetic.main.activity_where_buy.*
 
-class WherebuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+import javax.inject.Inject
+
+class WherebuyActivity : AppCompatActivity(), HasSupportFragmentInjector, AdapterView.OnItemSelectedListener {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     private lateinit var wherebuyViewModel: WherebuyViewModel
 
@@ -39,7 +49,7 @@ class WherebuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
                 null
         )
 
-        map_city.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
+//        map_city.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item)
         map_city.onItemSelectedListener = this
 
         wherebuyViewModel = ViewModelProviders.of(this).get(WherebuyViewModel::class.java)
@@ -102,4 +112,7 @@ class WherebuyActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         map_view.onStop()
         MapKitFactory.getInstance().onStop()
     }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
+
 }

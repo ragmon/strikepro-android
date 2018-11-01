@@ -32,12 +32,12 @@ import javax.inject.Singleton
             AndroidInjectionModule::class,
             AppModule::class,
             // ### Activity modules ###############################################################
-            MainActivityModule::class,
-            CatalogActivityModule::class,
-            BlogActivityModule::class,
-            ContactActivityModule::class,
-            WherebuyActivityModule::class,
-            AboutActivityModule::class
+            MainActivityModule::class
+//            CatalogActivityModule::class,
+//            BlogActivityModule::class,
+//            ContactActivityModule::class,
+//            WherebuyActivityModule::class,
+//            AboutActivityModule::class
             // ### End Of Activity modules ########################################################
         ]
 )

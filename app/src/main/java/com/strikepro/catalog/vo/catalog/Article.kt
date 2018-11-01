@@ -4,6 +4,9 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.ForeignKey
 import android.arch.persistence.room.ForeignKey.CASCADE
 
+import com.strikepro.catalog.vo.BaseFeedItem
+import com.strikepro.catalog.vo.ResourceType
+
 @Entity(
         primaryKeys = ["id"],
         foreignKeys = [
@@ -35,4 +38,4 @@ data class Article (
         var in_stock: Boolean,
         var created_at: String,
         var updated_at: String
-)
+) : BaseFeedItem(ResourceType.ARTICLE)

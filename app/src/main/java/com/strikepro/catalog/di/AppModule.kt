@@ -15,6 +15,7 @@ import com.strikepro.catalog.db.wherebuy.CityDAO
 import com.strikepro.catalog.db.wherebuy.StoreDAO
 
 import com.strikepro.catalog.service.blog.CategoryService
+import com.strikepro.catalog.service.blog.PostService
 import com.strikepro.catalog.service.catalog.ArticleService
 import com.strikepro.catalog.service.catalog.GroupService
 import com.strikepro.catalog.service.wherebuy.CityService
@@ -57,13 +58,13 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun providePostService(): CategoryService {
+    fun providePostService(): PostService {
         return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(JacksonConverterFactory.create())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory())
                 .build()
-                .create(CategoryService::class.java)
+                .create(PostService::class.java)
     }
 
     @Singleton

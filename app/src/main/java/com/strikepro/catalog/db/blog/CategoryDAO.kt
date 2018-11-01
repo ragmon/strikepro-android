@@ -9,9 +9,6 @@ import android.arch.persistence.room.Query
 
 import com.strikepro.catalog.vo.blog.Category
 
-/**
- * Interface for database access on Repo related operations.
- */
 @Dao
 abstract class CategoryDAO {
 
