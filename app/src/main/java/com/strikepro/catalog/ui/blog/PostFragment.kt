@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.strikepro.catalog.R
+import com.strikepro.catalog.di.Injectable
 
 /**
  * A simple [Fragment] subclass.
  * Use the [PostFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PostFragment : Fragment() {
+class PostFragment : Fragment(), Injectable {
     private var paramPostId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

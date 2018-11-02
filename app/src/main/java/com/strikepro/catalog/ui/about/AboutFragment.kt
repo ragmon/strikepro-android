@@ -10,11 +10,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import com.strikepro.catalog.R
+import com.strikepro.catalog.di.Injectable
 
 import kotlinx.android.synthetic.main.fragment_about.*
 import kotlinx.android.synthetic.main.fragment_about.view.*
 
-class AboutFragment : Fragment(), View.OnLongClickListener {
+class AboutFragment : Fragment(), Injectable, View.OnLongClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_about, container, false)

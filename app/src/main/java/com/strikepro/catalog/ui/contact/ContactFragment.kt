@@ -9,9 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.strikepro.catalog.R
+import com.strikepro.catalog.di.Injectable
 import kotlinx.android.synthetic.main.fragment_contact.*
 
-class ContactFragment : Fragment() {
+class ContactFragment : Fragment(), Injectable {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

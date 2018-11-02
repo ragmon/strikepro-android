@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.strikepro.catalog.R
 
-class StoreFragment : Fragment() {
+import com.strikepro.catalog.R
+import com.strikepro.catalog.di.Injectable
+
+class StoreFragment : Fragment(), Injectable {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

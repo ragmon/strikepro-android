@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.strikepro.catalog.R
+import com.strikepro.catalog.di.Injectable
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,7 +21,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class GroupFragment : Fragment() {
+class GroupFragment : Fragment(), Injectable {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null

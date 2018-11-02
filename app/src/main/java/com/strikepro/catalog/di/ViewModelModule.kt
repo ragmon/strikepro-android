@@ -6,6 +6,7 @@ import com.strikepro.catalog.viewmodel.CatalogViewModelFactory
 
 import com.strikepro.catalog.ui.blog.BlogViewModel
 import com.strikepro.catalog.ui.catalog.CatalogViewModel
+import com.strikepro.catalog.ui.main.FeedViewModel
 import com.strikepro.catalog.ui.wherebuy.WherebuyViewModel
 
 import dagger.Binds
@@ -15,6 +16,11 @@ import dagger.multibindings.IntoMap
 @Suppress("unused")
 @Module
 abstract class ViewModelModule {
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(FeedViewModel::class)
+    abstract fun bindFeedViewModel(feedViewModel: FeedViewModel): ViewModel
 
     @Binds
     @IntoMap

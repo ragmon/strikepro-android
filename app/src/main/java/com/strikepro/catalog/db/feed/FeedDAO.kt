@@ -1,4 +1,4 @@
-package com.strikepro.catalog.db
+package com.strikepro.catalog.db.feed
 
 import android.arch.lifecycle.LiveData
 
