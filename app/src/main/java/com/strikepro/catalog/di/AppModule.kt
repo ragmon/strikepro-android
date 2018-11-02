@@ -11,6 +11,8 @@ import com.strikepro.catalog.db.blog.CategoryDAO
 import com.strikepro.catalog.db.blog.PostDAO
 import com.strikepro.catalog.db.catalog.ArticleDAO
 import com.strikepro.catalog.db.catalog.GroupDAO
+import com.strikepro.catalog.db.feed.FeedCategoryDAO
+import com.strikepro.catalog.db.feed.FeedDAO
 import com.strikepro.catalog.db.wherebuy.CityDAO
 import com.strikepro.catalog.db.wherebuy.StoreDAO
 
@@ -36,117 +38,99 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideDB(app: Application): CatalogDB {
-        return Room
-                .databaseBuilder(app, CatalogDB::class.java, DATABASE_NAME)
-                .fallbackToDestructiveMigration()
-                .build()
-    }
+    fun provideDB(app: Application): CatalogDB = Room
+            .databaseBuilder(app, CatalogDB::class.java, DATABASE_NAME)
+            .fallbackToDestructiveMigration()
+            .build()
 
     // ### Retrofit Service Providers #############################################################
 
     @Singleton
     @Provides
-    fun provideCategoryService(): CategoryService {
-        return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
-                .build()
-                .create(CategoryService::class.java)
-    }
+    fun provideCategoryService(): CategoryService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(CategoryService::class.java)
 
     @Singleton
     @Provides
-    fun providePostService(): PostService {
-        return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
-                .build()
-                .create(PostService::class.java)
-    }
+    fun providePostService(): PostService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(PostService::class.java)
 
     @Singleton
     @Provides
-    fun provideArticleService(): ArticleService {
-        return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
-                .build()
-                .create(ArticleService::class.java)
-    }
+    fun provideArticleService(): ArticleService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(ArticleService::class.java)
 
     @Singleton
     @Provides
-    fun provideGroupService(): GroupService {
-        return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
-                .build()
-                .create(GroupService::class.java)
-    }
+    fun provideGroupService(): GroupService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(GroupService::class.java)
 
     @Singleton
     @Provides
-    fun provideCityService(): CityService {
-        return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
-                .build()
-                .create(CityService::class.java)
-    }
+    fun provideCityService(): CityService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(CityService::class.java)
 
     @Singleton
     @Provides
-    fun provideStoreService(): StoreService {
-        return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
-                .build()
-                .create(StoreService::class.java)
-    }
+    fun provideStoreService(): StoreService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(StoreService::class.java)
 
     // ### DAO Providers ##########################################################################
 
     @Singleton
     @Provides
-    fun provideCategoryDAO(db: CatalogDB): CategoryDAO {
-        return db.categoryDAO()
-    }
+    fun provideFeedCategoryDAO(db: CatalogDB): FeedCategoryDAO = db.feedCategoryDAO()
 
     @Singleton
     @Provides
-    fun providePostDAO(db: CatalogDB): PostDAO {
-        return db.postDAO()
-    }
+    fun provideFeedDAO(db: CatalogDB): FeedDAO = db.feedDAO()
 
     @Singleton
     @Provides
-    fun provideArticleDAO(db: CatalogDB): ArticleDAO {
-        return db.articleDAO()
-    }
+    fun provideCategoryDAO(db: CatalogDB): CategoryDAO = db.categoryDAO()
 
     @Singleton
     @Provides
-    fun provideGroupDAO(db: CatalogDB): GroupDAO {
-        return db.groupDAO()
-    }
+    fun providePostDAO(db: CatalogDB): PostDAO = db.postDAO()
 
     @Singleton
     @Provides
-    fun provideCityDAO(db: CatalogDB): CityDAO {
-        return db.cityDAO()
-    }
+    fun provideArticleDAO(db: CatalogDB): ArticleDAO = db.articleDAO()
 
     @Singleton
     @Provides
-    fun provideStoreDAO(db: CatalogDB): StoreDAO {
-        return db.storeDAO()
-    }
+    fun provideGroupDAO(db: CatalogDB): GroupDAO = db.groupDAO()
+
+    @Singleton
+    @Provides
+    fun provideCityDAO(db: CatalogDB): CityDAO = db.cityDAO()
+
+    @Singleton
+    @Provides
+    fun provideStoreDAO(db: CatalogDB): StoreDAO = db.storeDAO()
 
 }
