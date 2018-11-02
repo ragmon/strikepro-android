@@ -11,6 +11,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class WherebuyActivityModule {
 
     @ContributesAndroidInjector(modules = [WherebuyActivityFragmentBuildersModule::class])
-    abstract fun contributeMainActivity(): WherebuyActivity
+    abstract fun contributeWherebuyActivity(): WherebuyActivity
 
 }
