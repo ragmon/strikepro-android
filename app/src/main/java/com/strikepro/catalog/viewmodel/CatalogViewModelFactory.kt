@@ -16,8 +16,8 @@
 
 package com.strikepro.catalog.viewmodel
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 import javax.inject.Provider
 import javax.inject.Inject

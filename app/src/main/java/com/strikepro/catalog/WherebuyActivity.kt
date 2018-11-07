@@ -1,13 +1,13 @@
 package com.strikepro.catalog
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.View
 import android.widget.AdapterView
-//import android.widget.ArrayAdapter
+
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 
 import com.strikepro.catalog.api.Resource
 import com.strikepro.catalog.common.YANDEX_MAP_API_KEY
@@ -19,8 +19,8 @@ import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
-import dagger.android.AndroidInjector
 
+import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 

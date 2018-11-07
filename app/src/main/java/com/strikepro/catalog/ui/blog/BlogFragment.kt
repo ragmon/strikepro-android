@@ -1,21 +1,19 @@
 package com.strikepro.catalog.ui.blog
 
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingComponent
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
+import androidx.databinding.DataBindingComponent
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 
 import com.strikepro.catalog.R
 import com.strikepro.catalog.binding.FragmentDataBindingComponent
 import com.strikepro.catalog.common.AppExecutors
 import com.strikepro.catalog.di.Injectable
-import com.strikepro.catalog.ui.common.RetryCallback
-import com.strikepro.catalog.util.autoCleared
 
 import javax.inject.Inject
 

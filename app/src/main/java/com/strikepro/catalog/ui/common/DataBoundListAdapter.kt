@@ -16,7 +16,7 @@
 
 package com.strikepro.catalog.ui.common
 
-import android.databinding.ViewDataBinding
+import androidx.databinding.ViewDataBinding
 import android.support.v7.recyclerview.extensions.AsyncDifferConfig
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.util.DiffUtil

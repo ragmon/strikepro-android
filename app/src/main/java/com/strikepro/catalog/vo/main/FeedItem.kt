@@ -1,10 +1,11 @@
 package com.strikepro.catalog.vo.main
 
-import android.arch.persistence.room.Entity
+import androidx.room.Entity
 
 import com.strikepro.catalog.vo.BaseFeedItem
 
 @Entity(
+        tableName = "feed_item",
         primaryKeys = ["id"]
 )
 data class FeedItem (

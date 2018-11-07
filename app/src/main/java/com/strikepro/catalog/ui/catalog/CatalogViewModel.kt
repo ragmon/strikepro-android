@@ -1,11 +1,11 @@
 package com.strikepro.catalog.ui.catalog
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Transformations
-import android.arch.lifecycle.ViewModel
-import com.strikepro.catalog.api.Resource
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
 
+import com.strikepro.catalog.api.Resource
 import com.strikepro.catalog.repository.CatalogRepository
 import com.strikepro.catalog.util.AbsentLiveData
 import com.strikepro.catalog.vo.catalog.Article

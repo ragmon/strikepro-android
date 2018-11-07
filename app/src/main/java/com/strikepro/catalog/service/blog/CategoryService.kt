@@ -1,6 +1,7 @@
 package com.strikepro.catalog.service.blog
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
+
 import com.strikepro.catalog.api.ApiResponse
 import com.strikepro.catalog.vo.blog.Category
 

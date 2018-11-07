@@ -16,7 +16,7 @@
 
 package com.strikepro.catalog.ui.common
 
-import android.databinding.ViewDataBinding
+import androidx.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
 
 /**

@@ -1,8 +1,8 @@
 package com.strikepro.catalog.vo.catalog
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.ForeignKey
-import android.arch.persistence.room.ForeignKey.CASCADE
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.ForeignKey.CASCADE
 
 import com.strikepro.catalog.vo.BaseFeedItem
 import com.strikepro.catalog.vo.ResourceType
@@ -10,12 +10,12 @@ import com.strikepro.catalog.vo.ResourceType
 @Entity(
         primaryKeys = ["id"],
         foreignKeys = [
-            ForeignKey(
-                    entity = Group::class,
-                    parentColumns = ["id"],
-                    childColumns = ["group_id"],
-                    onDelete = CASCADE
-            )
+//            ForeignKey(
+//                    entity = Group::class,
+//                    parentColumns = ["id"],
+//                    childColumns = ["group_id"],
+//                    onDelete = CASCADE
+//            )
         ]
 )
 data class Article (

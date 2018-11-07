@@ -1,7 +1,7 @@
 package com.strikepro.catalog.di
 
 import android.app.Application
-import android.arch.persistence.room.Room
+import androidx.room.Room
 
 import com.strikepro.catalog.common.BASE_URL
 import com.strikepro.catalog.common.DATABASE_NAME

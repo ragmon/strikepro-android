@@ -1,6 +1,6 @@
 package com.strikepro.catalog.vo
 
-import android.arch.persistence.room.Entity
+import androidx.room.Entity
 
 @Entity(
         primaryKeys = ["id"]

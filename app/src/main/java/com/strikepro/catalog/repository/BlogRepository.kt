@@ -1,8 +1,8 @@
 package com.strikepro.catalog.repository
 
-import android.arch.lifecycle.LiveData
-import com.strikepro.catalog.api.ApiResponse
+import androidx.lifecycle.LiveData
 
+import com.strikepro.catalog.api.ApiResponse
 import com.strikepro.catalog.api.Resource
 import com.strikepro.catalog.common.AppExecutors
 import com.strikepro.catalog.common.POST_SYNC_TIMEOUT

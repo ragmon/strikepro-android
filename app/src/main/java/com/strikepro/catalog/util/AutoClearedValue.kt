@@ -20,7 +20,7 @@ import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.OnLifecycleEvent
 
-import android.support.v4.app.Fragment
+import androidx.core.app.Fragment
 
 import java.lang.IllegalStateException
 

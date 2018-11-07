@@ -1,6 +1,6 @@
 package com.strikepro.catalog.service.feed
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 
 import com.strikepro.catalog.api.ApiResponse
 import com.strikepro.catalog.vo.main.FeedCategory

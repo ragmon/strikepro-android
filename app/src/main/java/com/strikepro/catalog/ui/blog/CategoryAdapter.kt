@@ -1,7 +1,7 @@
 package com.strikepro.catalog.ui.blog
 
-import android.databinding.DataBindingComponent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingComponent
+import androidx.databinding.DataBindingUtil
 
 import android.support.v7.util.DiffUtil
 

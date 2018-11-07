@@ -1,12 +1,11 @@
 package com.strikepro.catalog.db.blog
 
-import android.arch.lifecycle.LiveData
-import android.arch.paging.DataSource
-
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+//import android.arch.paging.DataSource
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 import com.strikepro.catalog.vo.blog.Post
 
@@ -25,7 +24,7 @@ abstract class PostDAO {
     @Query("SELECT * FROM post")
     abstract fun loadList(): LiveData<List<Post>>
 
-    @Query("SELECT * FROM post")
-    abstract fun loadPaging(): DataSource.Factory<Int, Post>
+//    @Query("SELECT * FROM post")
+//    abstract fun loadPaging(): DataSource.Factory<Int, Post>
 
 }

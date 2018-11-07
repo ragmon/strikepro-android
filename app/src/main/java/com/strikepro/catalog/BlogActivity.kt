@@ -1,9 +1,10 @@
 package com.strikepro.catalog
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.MenuItem
+
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
 import com.strikepro.catalog.ui.blog.BlogFragment
 import com.strikepro.catalog.ui.blog.PostFragment
