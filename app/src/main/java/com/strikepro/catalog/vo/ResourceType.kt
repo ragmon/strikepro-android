@@ -1,5 +1,7 @@
 package com.strikepro.catalog.vo
 
+import com.fasterxml.jackson.annotation.JsonValue
+
 // Available resource types.
 const val TYPE_UNKNOWN = "unknown"
 const val TYPE_ALL = "all"
@@ -15,5 +17,8 @@ enum class ResourceType(val type: String = TYPE_UNKNOWN) {
     ALL(TYPE_ALL),
     POST(TYPE_POST),
     GROUP(TYPE_GROUP),
-    ARTICLE(TYPE_ARTICLE),
+    ARTICLE(TYPE_ARTICLE);
+
+    @JsonValue
+    fun getName(): String = type
 }

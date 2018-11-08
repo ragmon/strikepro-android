@@ -2,11 +2,13 @@ package com.strikepro.catalog.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 import com.strikepro.catalog.db.blog.CategoryDAO
 import com.strikepro.catalog.db.blog.PostDAO
 import com.strikepro.catalog.db.catalog.ArticleDAO
 import com.strikepro.catalog.db.catalog.GroupDAO
+import com.strikepro.catalog.db.converter.ResourceTypeConverter
 import com.strikepro.catalog.db.feed.FeedCategoryDAO
 import com.strikepro.catalog.db.feed.FeedDAO
 import com.strikepro.catalog.db.wherebuy.CityDAO
@@ -42,6 +44,9 @@ import com.strikepro.catalog.vo.wherebuy.Store
         version = 1,
         exportSchema = false
 )
+@TypeConverters(value = [
+    ResourceTypeConverter::class
+])
 abstract class CatalogDB: RoomDatabase() {
 
     abstract fun feedCategoryDAO(): FeedCategoryDAO
