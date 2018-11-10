@@ -2,12 +2,13 @@ package com.strikepro.catalog.ui.about
 
 import android.os.Build
 import android.os.Bundle
-import androidx.core.app.Fragment
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+
+import androidx.fragment.app.Fragment
 
 import com.strikepro.catalog.R
 import com.strikepro.catalog.di.Injectable

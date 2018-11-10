@@ -1,10 +1,13 @@
 package com.strikepro.catalog.util
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
+
 import com.strikepro.catalog.api.ApiResponse
+
 import retrofit2.CallAdapter
 import retrofit2.CallAdapter.Factory
 import retrofit2.Retrofit
+
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 

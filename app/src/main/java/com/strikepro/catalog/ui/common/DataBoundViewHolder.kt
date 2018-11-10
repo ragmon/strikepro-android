@@ -17,7 +17,7 @@
 package com.strikepro.catalog.ui.common
 
 import androidx.databinding.ViewDataBinding
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * A generic ViewHolder that works with a [ViewDataBinding].

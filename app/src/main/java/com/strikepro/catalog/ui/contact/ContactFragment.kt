@@ -1,15 +1,17 @@
 package com.strikepro.catalog.ui.contact
 
 import android.os.Bundle
-import androidx.core.app.Fragment
-import androidx.core.app.FragmentManager
-import androidx.core.app.FragmentPagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+
 import com.strikepro.catalog.R
 import com.strikepro.catalog.di.Injectable
+
 import kotlinx.android.synthetic.main.fragment_contact.*
 
 class ContactFragment : Fragment(), Injectable {

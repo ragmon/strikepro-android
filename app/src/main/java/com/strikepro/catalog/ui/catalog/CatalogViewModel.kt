@@ -26,7 +26,7 @@ class CatalogViewModel @Inject constructor(
             }
     private val articles: LiveData<Resource<List<Article>>> = Transformations
             .switchMap(selectedGroup) { selectedGroup ->
-                if (selectedGroup != null && selectedGroup.is_product)
+                if (selectedGroup != null && selectedGroup.isProduct == true)
                     catalogRepository.loadArticleList(selectedGroup.id)
                 else
                     AbsentLiveData.create()

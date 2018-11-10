@@ -3,7 +3,7 @@ package com.strikepro.catalog.ui.blog
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 
-import android.support.v7.util.DiffUtil
+//import android.support.v7.util.DiffUtil
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
