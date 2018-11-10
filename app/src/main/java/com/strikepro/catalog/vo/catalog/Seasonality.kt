@@ -1,19 +1,18 @@
-package com.strikepro.catalog.vo.blog
+package com.strikepro.catalog.vo.catalog
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.Relation
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
 import java.util.*
 
 @Entity(
-        tableName = "category"
+        tableName = "seasonality"
 )
-data class Category (
+data class Seasonality(
         @NonNull
         @PrimaryKey
         @ColumnInfo(name = "id")
@@ -31,11 +30,4 @@ data class Category (
         @ColumnInfo(name = "updated_at")
         @JsonProperty("updated_at")
         var updated_at: Date
-) {
-//        @Relation(
-//                entity = Post::class,
-//                entityColumn = "category_id",
-//                parentColumn = "id"
-//        )
-//        lateinit var posts: List<Post>
-}
+)

@@ -3,7 +3,6 @@ apply plugin: 'jacoco'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
 apply plugin: 'kotlin-allopen'
 apply plugin: 'androidx.navigation.safeargs'
 
@@ -49,6 +48,9 @@ android {
 }
 jacoco {
     toolVersion = "0.7.4+"
+}
+kapt {
+    generateStubs = true
 }
 
 dependencies {

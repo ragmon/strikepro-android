@@ -1,4 +1,4 @@
-package com.strikepro.catalog.vo.blog
+package com.strikepro.catalog.vo
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
@@ -8,12 +8,14 @@ import androidx.room.Relation
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
+import com.strikepro.catalog.vo.wherebuy.City
+
 import java.util.*
 
 @Entity(
-        tableName = "category"
+        tableName = "country"
 )
-data class Category (
+data class Country (
         @NonNull
         @PrimaryKey
         @ColumnInfo(name = "id")
@@ -32,10 +34,10 @@ data class Category (
         @JsonProperty("updated_at")
         var updated_at: Date
 ) {
-//        @Relation(
-//                entity = Post::class,
-//                entityColumn = "category_id",
-//                parentColumn = "id"
-//        )
-//        lateinit var posts: List<Post>
+//    @Relation(
+//            entity = City::class,
+//            entityColumn = "country_id",
+//            parentColumn = "id"
+//    )
+//    lateinit var cities: List<City>
 }

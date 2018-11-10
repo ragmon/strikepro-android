@@ -16,3 +16,8 @@ const val FACEBOOK_URL = "https://www.facebook.com/StrikeProRussia"
 const val VKONTAKTE_URL = "https://vk.com/strikepro"
 const val YOUTUBE_URL = "https://www.youtube.com/user/StrikeProRussia"
 const val INSTAGRAM_URL = "https://www.instagram.com/strikeprorussia"
+
+// Date & time
+const val DATE_FORMAT = "dd.MM.yyyy"
+const val TIME_FORMAT = "HH:mm:ss"
+const val DATETIME_FORMAT = "HH:mm:ss dd.MM.yyyy"

@@ -12,6 +12,7 @@ const val TYPE_ARTICLE = "article"
 /**
  * Polymorphic resource type.
  */
+@Suppress("unused")
 enum class ResourceType(val type: String = TYPE_UNKNOWN) {
     UNKNOWN(TYPE_UNKNOWN),
     ALL(TYPE_ALL),

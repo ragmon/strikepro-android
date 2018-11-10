@@ -6,18 +6,20 @@ import androidx.room.TypeConverters
 
 import com.strikepro.catalog.db.blog.CategoryDAO
 import com.strikepro.catalog.db.blog.PostDAO
-import com.strikepro.catalog.db.catalog.ArticleDAO
-import com.strikepro.catalog.db.catalog.GroupDAO
-import com.strikepro.catalog.db.converter.ResourceTypeConverter
+import com.strikepro.catalog.db.catalog.*
+import com.strikepro.catalog.db.common.CountryDAO
+import com.strikepro.catalog.db.converter.DatetimeTypeConverter
 import com.strikepro.catalog.db.feed.FeedCategoryDAO
 import com.strikepro.catalog.db.feed.FeedDAO
+import com.strikepro.catalog.db.feedback.FeedbackDAO
 import com.strikepro.catalog.db.wherebuy.CityDAO
 import com.strikepro.catalog.db.wherebuy.StoreDAO
+import com.strikepro.catalog.vo.Country
+import com.strikepro.catalog.vo.Feedback
 
 import com.strikepro.catalog.vo.blog.Category
 import com.strikepro.catalog.vo.blog.Post
-import com.strikepro.catalog.vo.catalog.Article
-import com.strikepro.catalog.vo.catalog.Group
+import com.strikepro.catalog.vo.catalog.*
 import com.strikepro.catalog.vo.main.FeedCategory
 import com.strikepro.catalog.vo.main.FeedItem
 import com.strikepro.catalog.vo.wherebuy.City
@@ -28,6 +30,8 @@ import com.strikepro.catalog.vo.wherebuy.Store
  */
 @Database(
         entities = [
+            // Common
+            Country::class,
             // Feed
             FeedCategory::class,
             FeedItem::class,
@@ -37,28 +41,48 @@ import com.strikepro.catalog.vo.wherebuy.Store
             // Category
             Article::class,
             Group::class,
+            Feature::class,
+            Manufacturer::class,
+            Seasonality::class,
+            Series::class,
             // Wherebuy
             City::class,
-            Store::class
+            Store::class,
+            // Feedback
+            Feedback::class
         ],
         version = 1,
         exportSchema = false
 )
 @TypeConverters(value = [
-    ResourceTypeConverter::class
+    DatetimeTypeConverter::class
 ])
 abstract class CatalogDB: RoomDatabase() {
 
+    // Common
+    abstract fun countryDAO(): CountryDAO
+
+    // Main feed
     abstract fun feedCategoryDAO(): FeedCategoryDAO
     abstract fun feedDAO(): FeedDAO
 
+    // Blog
     abstract fun categoryDAO(): CategoryDAO
     abstract fun postDAO(): PostDAO
 
+    // Catalog
     abstract fun articleDAO(): ArticleDAO
     abstract fun groupDAO(): GroupDAO
+    abstract fun manufacturerDAO(): ManufacturerDAO
+    abstract fun seasonalityDAO(): SeasonalityDAO
+    abstract fun seriesDAO(): SeriesDAO
+    abstract fun featureDAO(): FeatureDAO
 
+    // Wherebuy
     abstract fun cityDAO(): CityDAO
     abstract fun storeDAO(): StoreDAO
+
+    // Feedback
+    abstract fun feedbackDAO(): FeedbackDAO
 
 }
