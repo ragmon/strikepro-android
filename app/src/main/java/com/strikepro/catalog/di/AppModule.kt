@@ -9,8 +9,7 @@ import com.strikepro.catalog.common.DATABASE_NAME
 import com.strikepro.catalog.db.CatalogDB
 import com.strikepro.catalog.db.blog.CategoryDAO
 import com.strikepro.catalog.db.blog.PostDAO
-import com.strikepro.catalog.db.catalog.ArticleDAO
-import com.strikepro.catalog.db.catalog.GroupDAO
+import com.strikepro.catalog.db.catalog.*
 import com.strikepro.catalog.db.feed.FeedCategoryDAO
 import com.strikepro.catalog.db.feed.FeedDAO
 import com.strikepro.catalog.db.wherebuy.CityDAO
@@ -18,8 +17,7 @@ import com.strikepro.catalog.db.wherebuy.StoreDAO
 
 import com.strikepro.catalog.service.blog.CategoryService
 import com.strikepro.catalog.service.blog.PostService
-import com.strikepro.catalog.service.catalog.ArticleService
-import com.strikepro.catalog.service.catalog.GroupService
+import com.strikepro.catalog.service.catalog.*
 import com.strikepro.catalog.service.wherebuy.CityService
 import com.strikepro.catalog.service.wherebuy.StoreService
 
@@ -83,6 +81,51 @@ class AppModule {
 
     @Singleton
     @Provides
+    fun provideFeatureService(): FeatureService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(FeatureService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideSeriesService(): SeriesService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(SeriesService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideSeasonalityService(): SeasonalityService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(SeasonalityService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideTypeService(): TypeService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(TypeService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideManufacturerService(): ManufacturerService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(ManufacturerService::class.java)
+
+    @Singleton
+    @Provides
     fun provideCityService(): CityService = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(JacksonConverterFactory.create())
@@ -124,6 +167,26 @@ class AppModule {
     @Singleton
     @Provides
     fun provideGroupDAO(db: CatalogDB): GroupDAO = db.groupDAO()
+
+    @Singleton
+    @Provides
+    fun provideFeatureDAO(db: CatalogDB): FeatureDAO = db.featureDAO()
+
+    @Singleton
+    @Provides
+    fun provideSeriesDAO(db: CatalogDB): SeriesDAO = db.seriesDAO()
+
+    @Singleton
+    @Provides
+    fun provideSeasonalityDAO(db: CatalogDB): SeasonalityDAO = db.seasonalityDAO()
+
+    @Singleton
+    @Provides
+    fun provideTypeDAO(db: CatalogDB): TypeDAO = db.typeDAO()
+
+    @Singleton
+    @Provides
+    fun provideManufacturerDAO(db: CatalogDB): ManufacturerDAO = db.manufacturerDAO()
 
     @Singleton
     @Provides
