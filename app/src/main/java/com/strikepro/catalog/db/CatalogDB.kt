@@ -45,13 +45,14 @@ import com.strikepro.catalog.vo.wherebuy.Store
             Manufacturer::class,
             Seasonality::class,
             Series::class,
+            Type::class,
             // Wherebuy
             City::class,
             Store::class,
             // Feedback
             Feedback::class
         ],
-        version = 1,
+        version = 2,
         exportSchema = false
 )
 @TypeConverters(value = [
@@ -77,6 +78,7 @@ abstract class CatalogDB: RoomDatabase() {
     abstract fun seasonalityDAO(): SeasonalityDAO
     abstract fun seriesDAO(): SeriesDAO
     abstract fun featureDAO(): FeatureDAO
+    abstract fun typeDAO(): TypeDAO
 
     // Wherebuy
     abstract fun cityDAO(): CityDAO
