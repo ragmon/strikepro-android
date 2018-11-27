@@ -7,6 +7,7 @@ import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 
 import com.strikepro.catalog.R
 import com.strikepro.catalog.di.Injectable
@@ -24,12 +25,12 @@ private const val ARG_PARAM_CATEGORY_TYPE = "category_type"
  *
  */
 class FeedFragment : Fragment(), Injectable {
-    private lateinit var categoryType: ResourceType
+//    private lateinit var categoryType: ResourceType
 
-//    @Inject
-//    lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
-//    private lateinit var feedViewModel: FeedViewModel
+    private lateinit var feedViewModel: FeedViewModel
 //
 //    private lateinit var categories: LiveData<Resource<List<FeedCategory>>>
 //    private lateinit var selectedCategory: LiveData<FeedCategory>
@@ -37,10 +38,10 @@ class FeedFragment : Fragment(), Injectable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            if (it.getString(ARG_PARAM_CATEGORY_TYPE) != null)
-                categoryType = ResourceType.valueOf(it.getString(ARG_PARAM_CATEGORY_TYPE)!!)
-        }
+//        arguments?.let {
+//            if (it.getString(ARG_PARAM_CATEGORY_TYPE) != null)
+//                categoryType = ResourceType.valueOf(it.getString(ARG_PARAM_CATEGORY_TYPE)!!)
+//        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

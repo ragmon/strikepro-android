@@ -18,6 +18,8 @@ import com.strikepro.catalog.db.wherebuy.StoreDAO
 import com.strikepro.catalog.service.blog.CategoryService
 import com.strikepro.catalog.service.blog.PostService
 import com.strikepro.catalog.service.catalog.*
+import com.strikepro.catalog.service.feed.FeedCategoryService
+import com.strikepro.catalog.service.feed.FeedService
 import com.strikepro.catalog.service.wherebuy.CityService
 import com.strikepro.catalog.service.wherebuy.StoreService
 
@@ -42,6 +44,24 @@ class AppModule {
             .build()
 
     // ### Retrofit Service Providers #############################################################
+
+    @Singleton
+    @Provides
+    fun provideFeedCategoryService(): FeedCategoryService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(FeedCategoryService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideFeedService(): FeedService = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(JacksonConverterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
+            .build()
+            .create(FeedService::class.java)
 
     @Singleton
     @Provides
