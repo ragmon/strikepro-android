@@ -6,12 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 import com.strikepro.catalog.R
+import com.strikepro.catalog.api.Resource
 import com.strikepro.catalog.di.Injectable
 import com.strikepro.catalog.vo.ResourceType
+import com.strikepro.catalog.vo.main.FeedCategory
+import com.strikepro.catalog.vo.main.FeedItem
+import timber.log.Timber
 
 import javax.inject.Inject
 
@@ -32,9 +38,9 @@ class FeedFragment : Fragment(), Injectable {
 
     private lateinit var feedViewModel: FeedViewModel
 //
-//    private lateinit var categories: LiveData<Resource<List<FeedCategory>>>
-//    private lateinit var selectedCategory: LiveData<FeedCategory>
-//    private lateinit var feedItems: LiveData<Resource<List<FeedItem>>>
+    private lateinit var categories: LiveData<Resource<List<FeedCategory>>>
+    private lateinit var selectedCategory: LiveData<FeedCategory>
+    private lateinit var feedItems: LiveData<Resource<List<FeedItem>>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,26 +57,36 @@ class FeedFragment : Fragment(), Injectable {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        feedViewModel = ViewModelProviders.of(this, viewModelFactory)
-//                .get(FeedViewModel::class.java)
-//
-//        categories = feedViewModel.getCategories()
-//        selectedCategory = feedViewModel.getSelectedCategory()
-//        feedItems = feedViewModel.getItems()
-//
-//        categories.observe(this, categoriesObserver)
-//        selectedCategory.observe(this, selectedCategoryObserver)
-//        feedItems.observe(this, feedItemsObserver)
+        feedViewModel = ViewModelProviders.of(this, viewModelFactory)
+                .get(FeedViewModel::class.java)
+
+        categories = feedViewModel.getCategories()
+        selectedCategory = feedViewModel.getSelectedCategory()
+        feedItems = feedViewModel.getItems()
+
+        categories.observe(this, categoriesObserver)
+        selectedCategory.observe(this, selectedCategoryObserver)
+        feedItems.observe(this, feedItemsObserver)
     }
 
-//    private val categoriesObserver = Observer<Resource<List<FeedCategory>>> { categories ->
-////        categories.sortedBy { feedCategory ->
-////            feedCategory.order
-////        }.forEach { category ->
-////            feed_category.addView(inflateCategoryTabItemLayout(category.resource_name, category.resource_type))
-////        }
-//    }
-//
+    private val categoriesObserver = Observer<Resource<List<FeedCategory>>> {
+//        Timber.d("categoriesObserver")
+//        categories.sortedBy { feedCategory ->
+//            feedCategory.order
+//        }.forEach { category ->
+//            feed_category.addView(inflateCategoryTabItemLayout(category.resource_name, category.resource_type))
+//        }
+
+//        if (categories != null) {
+//            //
+//        } else {
+//            //
+//        }
+        if (it.data != null) {
+            Timber.d("categoriesObserver total=%d", it.data.size)
+        }
+    }
+
 //    private fun inflateCategoryTabItemLayout(name: String, type: ResourceType): View {
 //        val view = LayoutInflater.from(activity).inflate(R.layout.feed_category_item, null)
 //
@@ -79,22 +95,22 @@ class FeedFragment : Fragment(), Injectable {
 //
 //        return view
 //    }
-//
-//
-//    private val selectedCategoryObserver = Observer<FeedCategory> { selectedCategory ->
+
+
+    private val selectedCategoryObserver = Observer<FeedCategory> { selectedCategory ->
 //        categoryType = selectedCategory.resource_type
-//    }
-//
-//    private val feedItemsObserver = Observer<Resource<List<FeedItem>>> { items: Resource<List<FeedItem>> ->
-////        items.forEach { item ->
-////            item.
-////        }
-////        if (items.data != null && items.data.isNotEmpty()) {
-////            for (item in items.data) {
-////                feed_item.
-////            }
-////        }
-//    }
+    }
+
+    private val feedItemsObserver = Observer<Resource<List<FeedItem>>> { items: Resource<List<FeedItem>> ->
+//        items.forEach { item ->
+//            item.
+//        }
+//        if (items.data != null && items.data.isNotEmpty()) {
+//            for (item in items.data) {
+//                feed_item.
+//            }
+//        }
+    }
 
     companion object {
         /**

@@ -22,6 +22,7 @@ import com.strikepro.catalog.service.feed.FeedCategoryService
 import com.strikepro.catalog.service.feed.FeedService
 import com.strikepro.catalog.service.wherebuy.CityService
 import com.strikepro.catalog.service.wherebuy.StoreService
+import com.strikepro.catalog.util.HttpClientFactory
 
 import com.strikepro.catalog.util.LiveDataCallAdapterFactory
 
@@ -49,6 +50,7 @@ class AppModule {
     @Provides
     fun provideFeedCategoryService(): FeedCategoryService = Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .client(HttpClientFactory.create())
             .addConverterFactory(JacksonConverterFactory.create())
             .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .build()

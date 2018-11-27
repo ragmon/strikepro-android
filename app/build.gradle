@@ -65,6 +65,7 @@ dependencies {
     implementation deps.lifecycle.java8
     implementation deps.retrofit.runtime
     implementation deps.retrofit.jackson
+    implementation deps.okhttp_logging_interceptor
     implementation deps.glide.runtime
 
     implementation deps.yandexmap.runtime
