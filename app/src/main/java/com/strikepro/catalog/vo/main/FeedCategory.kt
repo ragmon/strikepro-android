@@ -17,7 +17,7 @@ import java.util.*
         tableName = "feed_category"
 )
 @TypeConverters(value = [ResourceTypeConverter::class])
-data class FeedCategory (
+data class FeedCategory(
         @NonNull
         @PrimaryKey
         @ColumnInfo(name = "id")
@@ -31,6 +31,10 @@ data class FeedCategory (
         @ColumnInfo(name = "resource_name")
         @JsonProperty("resource_name")
         var resource_name: String,
+
+        @ColumnInfo(name = "order")
+        @JsonProperty("order")
+        var order: Int,
 
         @ColumnInfo(name = "created_at")
         @JsonProperty("created_at")

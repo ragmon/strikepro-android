@@ -1,8 +1,9 @@
 package com.strikepro.catalog.binding
 
 import androidx.databinding.BindingAdapter
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
+
+import android.widget.ImageView
 
 import com.bumptech.glide.Glide
 

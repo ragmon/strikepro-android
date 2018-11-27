@@ -2,8 +2,8 @@ package com.strikepro.catalog.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.strikepro.catalog.viewmodel.CatalogViewModelFactory
 
+import com.strikepro.catalog.viewmodel.CatalogViewModelFactory
 import com.strikepro.catalog.ui.blog.BlogViewModel
 import com.strikepro.catalog.ui.catalog.CatalogViewModel
 import com.strikepro.catalog.ui.main.FeedViewModel

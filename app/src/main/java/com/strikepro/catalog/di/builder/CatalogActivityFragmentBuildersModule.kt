@@ -19,6 +19,9 @@ import dagger.android.ContributesAndroidInjector
 abstract class CatalogActivityFragmentBuildersModule {
 
 //    @ContributesAndroidInjector
+//    abstract fun contributeFeedFragment(): ArticleFragment
+
+//    @ContributesAndroidInjector
 //    abstract fun contributeBlogFragment(): BlogFragment
 //
 //    @ContributesAndroidInjector
@@ -35,17 +38,17 @@ abstract class CatalogActivityFragmentBuildersModule {
 //
 //    @ContributesAndroidInjector
 //    abstract fun contributeAboutFragment(): AboutFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeGroupFragment(): GroupFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeArticleFragment(): ArticleFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeGroupListFragment(): GroupListFragment
-//
-//    @ContributesAndroidInjector
-//    abstract fun contributeArticleListFragment(): ArticleListFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeGroupFragment(): GroupFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeArticleFragment(): ArticleFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeGroupListFragment(): GroupListFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeArticleListFragment(): ArticleListFragment
 
 }

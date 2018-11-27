@@ -30,4 +30,8 @@ class FeedViewModel @Inject constructor(
         selectedCategory.value = category
     }
     fun getSelectedCategory(): LiveData<FeedCategory> = selectedCategory
+
+    fun getCategories(): LiveData<Resource<List<FeedCategory>>> = categories
+
+    fun getItems(): LiveData<Resource<List<FeedItem>>> = items
 }

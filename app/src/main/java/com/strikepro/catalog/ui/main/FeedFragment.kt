@@ -6,14 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 
 import com.strikepro.catalog.R
 import com.strikepro.catalog.di.Injectable
+import com.strikepro.catalog.vo.ResourceType
 
-// TODO: Rename parameter arguments, choose names that match
+import javax.inject.Inject
+
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM_CATEGORY_TYPE = "category_type"
 
 /**
  * A simple [Fragment] subclass.
@@ -22,15 +24,22 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class FeedFragment : Fragment(), Injectable {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var categoryType: ResourceType
+
+//    @Inject
+//    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+//    private lateinit var feedViewModel: FeedViewModel
+//
+//    private lateinit var categories: LiveData<Resource<List<FeedCategory>>>
+//    private lateinit var selectedCategory: LiveData<FeedCategory>
+//    private lateinit var feedItems: LiveData<Resource<List<FeedItem>>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            if (it.getString(ARG_PARAM_CATEGORY_TYPE) != null)
+                categoryType = ResourceType.valueOf(it.getString(ARG_PARAM_CATEGORY_TYPE)!!)
         }
     }
 
@@ -40,23 +49,65 @@ class FeedFragment : Fragment(), Injectable {
         return inflater.inflate(R.layout.fragment_feed, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        feedViewModel = ViewModelProviders.of(this, viewModelFactory)
+//                .get(FeedViewModel::class.java)
+//
+//        categories = feedViewModel.getCategories()
+//        selectedCategory = feedViewModel.getSelectedCategory()
+//        feedItems = feedViewModel.getItems()
+//
+//        categories.observe(this, categoriesObserver)
+//        selectedCategory.observe(this, selectedCategoryObserver)
+//        feedItems.observe(this, feedItemsObserver)
+    }
+
+//    private val categoriesObserver = Observer<Resource<List<FeedCategory>>> { categories ->
+////        categories.sortedBy { feedCategory ->
+////            feedCategory.order
+////        }.forEach { category ->
+////            feed_category.addView(inflateCategoryTabItemLayout(category.resource_name, category.resource_type))
+////        }
+//    }
+//
+//    private fun inflateCategoryTabItemLayout(name: String, type: ResourceType): View {
+//        val view = LayoutInflater.from(activity).inflate(R.layout.feed_category_item, null)
+//
+////        view.category_icon. = type.type
+//        view.category_title.text = name
+//
+//        return view
+//    }
+//
+//
+//    private val selectedCategoryObserver = Observer<FeedCategory> { selectedCategory ->
+//        categoryType = selectedCategory.resource_type
+//    }
+//
+//    private val feedItemsObserver = Observer<Resource<List<FeedItem>>> { items: Resource<List<FeedItem>> ->
+////        items.forEach { item ->
+////            item.
+////        }
+////        if (items.data != null && items.data.isNotEmpty()) {
+////            for (item in items.data) {
+////                feed_item.
+////            }
+////        }
+//    }
 
     companion object {
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
+         * @param resourceType Feed items resource type (category).
          * @return A new instance of fragment FeedFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(resourceType: ResourceType = ResourceType.ALL) =
                 FeedFragment().apply {
                     arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
+                        putString(ARG_PARAM_CATEGORY_TYPE, resourceType.type)
                     }
                 }
     }
