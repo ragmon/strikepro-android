@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,9 +16,12 @@ import androidx.lifecycle.ViewModelProviders
 import com.strikepro.catalog.R
 import com.strikepro.catalog.api.Resource
 import com.strikepro.catalog.di.Injectable
+import com.strikepro.catalog.ui.EmptyFragment
+import com.strikepro.catalog.ui.about.AboutFragment
 import com.strikepro.catalog.vo.ResourceType
 import com.strikepro.catalog.vo.main.FeedCategory
 import com.strikepro.catalog.vo.main.FeedItem
+import kotlinx.android.synthetic.main.fragment_feed.*
 import timber.log.Timber
 
 import javax.inject.Inject
@@ -42,6 +47,8 @@ class FeedFragment : Fragment(), Injectable {
     private lateinit var selectedCategory: LiveData<FeedCategory>
     private lateinit var feedItems: LiveData<Resource<List<FeedItem>>>
 
+    private lateinit var mFeedPagerAdapter: FeedPagerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        arguments?.let {
@@ -57,6 +64,9 @@ class FeedFragment : Fragment(), Injectable {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        mFeedPagerAdapter = FeedPagerAdapter(fragmentManager!!)
+//        feed_pages.adapter = mFeedPagerAdapter
+
         feedViewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(FeedViewModel::class.java)
 
@@ -70,20 +80,14 @@ class FeedFragment : Fragment(), Injectable {
     }
 
     private val categoriesObserver = Observer<Resource<List<FeedCategory>>> {
-//        Timber.d("categoriesObserver")
-//        categories.sortedBy { feedCategory ->
-//            feedCategory.order
-//        }.forEach { category ->
-//            feed_category.addView(inflateCategoryTabItemLayout(category.resource_name, category.resource_type))
-//        }
-
-//        if (categories != null) {
-//            //
-//        } else {
-//            //
-//        }
+        Timber.d("categoriesObserver call")
         if (it.data != null) {
-            Timber.d("categoriesObserver total=%d", it.data.size)
+            // TODO: setup feed pager fragment
+            mFeedPagerAdapter = FeedPagerAdapter(fragmentManager!!, it.data)
+            feed_pages.adapter = mFeedPagerAdapter
+        } else {
+            Timber.d("Feed categories not exists.")
+            // TODO: setup empty fragment
         }
     }
 
@@ -110,6 +114,17 @@ class FeedFragment : Fragment(), Injectable {
 //                feed_item.
 //            }
 //        }
+    }
+
+    class FeedPagerAdapter(
+            fm: FragmentManager,
+            private val categories: List<FeedCategory>
+    ): FragmentStatePagerAdapter(fm) {
+        override fun getCount(): Int = categories.size
+
+        override fun getItem(position: Int): Fragment = EmptyFragment.newInstance()
+
+        override fun getPageTitle(position: Int): CharSequence? = categories[position].resource_name
     }
 
     companion object {

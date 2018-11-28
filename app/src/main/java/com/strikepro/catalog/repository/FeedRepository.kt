@@ -28,6 +28,7 @@ class FeedRepository @Inject constructor(
         private val feedDAO: FeedDAO,
         private val feedService: FeedService
 ) {
+    private val feedCategoryRateLimit = RateLimiter<String>(FEED_SYNC_TIMEOUT, TimeUnit.MINUTES)
     private val feedItemRateLimit = RateLimiter<ResourceType?>(FEED_SYNC_TIMEOUT, TimeUnit.MINUTES)
 
     fun loadCategories(): LiveData<Resource<List<FeedCategory>>> {
@@ -41,6 +42,7 @@ class FeedRepository @Inject constructor(
             override fun loadFromDB(): LiveData<List<FeedCategory>> = feedCategoryDAO.loadAll()
 
             override fun shouldFetch(data: List<FeedCategory>?): Boolean = data == null || data.isEmpty()
+                    || feedCategoryRateLimit.shouldFetch("feed_categories")
         }.asLiveData()
     }
 

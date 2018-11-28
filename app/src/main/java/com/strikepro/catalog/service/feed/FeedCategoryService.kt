@@ -8,6 +8,6 @@ import com.strikepro.catalog.vo.main.FeedCategory
 import retrofit2.http.GET
 
 interface FeedCategoryService {
-    @GET("feed_categories")
+    @GET("feed/categories")
     fun list(): LiveData<ApiResponse<List<FeedCategory>>>
 }

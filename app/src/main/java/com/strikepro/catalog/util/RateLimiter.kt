@@ -17,7 +17,7 @@
 package com.strikepro.catalog.util
 
 import android.os.SystemClock
-import android.util.ArrayMap
+import androidx.collection.ArrayMap
 import java.util.concurrent.TimeUnit
 
 /**

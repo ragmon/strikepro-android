@@ -1,7 +1,7 @@
 package com.strikepro.catalog.common
 
 // Common
-const val BASE_URL = "http://localhost:3000/"
+const val BASE_URL = "http://10.0.2.2:3000/api/v1/"
 const val DATABASE_NAME = "catalog.db"
 const val YANDEX_MAP_API_KEY = "cfd174d4-56fa-453c-8447-9a7bed58f232"
 

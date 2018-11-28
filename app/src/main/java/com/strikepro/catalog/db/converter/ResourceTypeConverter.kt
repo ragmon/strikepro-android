@@ -7,7 +7,7 @@ import com.strikepro.catalog.vo.ResourceType
 class ResourceTypeConverter {
 
     @TypeConverter
-    fun toResourceType(value: String): ResourceType = ResourceType.valueOf(value)
+    fun toResourceType(value: String): ResourceType = ResourceType.valueOf(value.toUpperCase())
 
     @TypeConverter
     fun toString(value: ResourceType): String = value.type
