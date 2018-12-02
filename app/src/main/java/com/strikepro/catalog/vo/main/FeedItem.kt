@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 
 import com.strikepro.catalog.vo.BaseFeedItem
+import com.strikepro.catalog.vo.ResourceType
 
 import java.util.*
 
@@ -23,15 +24,23 @@ data class FeedItem (
         @JsonProperty("id")
         var id: Int,
 
+        @ColumnInfo(name = "resource_type")
+        @JsonProperty("resource_type")
+        var resourceType: ResourceType,
+
+        @ColumnInfo(name = "resource_id")
+        @JsonProperty("resource_id")
+        var resourceId: Int,
+
         @ColumnInfo(name = "created_at")
         @JsonProperty("created_at")
-        var created_at: Date,
+        var createdAt: Date,
 
         @ColumnInfo(name = "updated_at")
         @JsonProperty("updated_at")
-        var updated_at: Date
+        var updatedAt: Date
 ) {
-//        @Ignore
-//        @JsonIgnore
-//        lateinit var resource: BaseFeedItem
+        @Ignore
+        @JsonIgnore
+        lateinit var resource: BaseFeedItem
 }

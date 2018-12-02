@@ -9,6 +9,7 @@ import com.strikepro.catalog.db.blog.PostDAO
 import com.strikepro.catalog.db.catalog.*
 import com.strikepro.catalog.db.common.CountryDAO
 import com.strikepro.catalog.db.converter.DatetimeTypeConverter
+import com.strikepro.catalog.db.converter.ResourceTypeConverter
 import com.strikepro.catalog.db.feed.FeedCategoryDAO
 import com.strikepro.catalog.db.feed.FeedDAO
 import com.strikepro.catalog.db.feedback.FeedbackDAO
@@ -56,7 +57,8 @@ import com.strikepro.catalog.vo.wherebuy.Store
         exportSchema = false
 )
 @TypeConverters(value = [
-    DatetimeTypeConverter::class
+    DatetimeTypeConverter::class,
+    ResourceTypeConverter::class
 ])
 abstract class CatalogDB: RoomDatabase() {
 

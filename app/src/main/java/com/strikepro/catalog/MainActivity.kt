@@ -79,10 +79,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Navigation
     // ### Navigation callbacks ###################################################################
 
     private fun navHomeItem() {
-        updateMainFeed()
-    }
-
-    private fun updateMainFeed() {
         //
     }
 
