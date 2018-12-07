@@ -33,8 +33,8 @@ import javax.inject.Singleton
             AppModule::class,
             // ### Activity modules ###############################################################
             MainActivityModule::class,
-            CatalogActivityModule::class
-//            BlogActivityModule::class,
+            CatalogActivityModule::class,
+            BlogActivityModule::class
 //            ContactActivityModule::class,
 //            WherebuyActivityModule::class,
 //            AboutActivityModule::class

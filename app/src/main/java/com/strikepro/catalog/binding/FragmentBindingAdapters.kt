@@ -13,7 +13,7 @@ import javax.inject.Inject
  * Binding adapters that work with a fragment instance.
  */
 class FragmentBindingAdapters @Inject constructor(val fragment: Fragment) {
-    @BindingAdapter("app:imageUrl")
+    @BindingAdapter("imageUrl")
     fun bindImage(imageView: ImageView, url: String?) {
         Glide.with(fragment).load(url).into(imageView)
     }
